@@ -15,19 +15,19 @@ script = ExtResource("1_6ks27")
 position = Vector2(56, 532)
 texture_normal = ExtResource("1_bf6yd")
 texture_pressed = ExtResource("2_slaio")
-action = "esquerda"
+action = "ui_left"
 
 [node name="Direita" type="TouchScreenButton" parent="."]
 position = Vector2(150, 532)
 texture_normal = ExtResource("3_ia54u")
 texture_pressed = ExtResource("4_tjl3u")
-action = "direita"
+action = "ui_right"
 
 [node name="Pulo" type="TouchScreenButton" parent="."]
 position = Vector2(871, 532)
 texture_normal = ExtResource("5_qwhvk")
 texture_pressed = ExtResource("6_0dx5n")
-action = "pulo"
+action = "ui_up"
 
 [connection signal="pressed" from="Esquerda" to="." method="_on_esquerda_pressed"]
 [connection signal="released" from="Esquerda" to="." method="_on_esquerda_released"]
