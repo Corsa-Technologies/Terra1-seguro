@@ -24,7 +24,7 @@ texture_pressed = ExtResource("4_tjl3u")
 action = "ui_right"
 
 [node name="Pulo" type="TouchScreenButton" parent="."]
-position = Vector2(871, 532)
+position = Vector2(968, 531)
 texture_normal = ExtResource("5_qwhvk")
 texture_pressed = ExtResource("6_0dx5n")
 action = "ui_up"

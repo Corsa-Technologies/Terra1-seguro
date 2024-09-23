@@ -13,6 +13,9 @@ config_version=5
 config/name="Decay"
 run/main_scene="res://Níveis/testes.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/bg_color=Color(0.0627451, 0.0627451, 0.0627451, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [display]
