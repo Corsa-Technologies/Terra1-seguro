@@ -3,30 +3,30 @@
 [ext_resource type="Script" path="res://Player/Scripts/movimento.gd" id="1_kiena"]
 [ext_resource type="Texture2D" uid="uid://b6jbvc0mkpm7c" path="res://Player/Aya_Placeholder.png" id="2_84xb5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ndxc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_efjqu"]
 atlas = ExtResource("2_84xb5")
-region = Rect2(0, 0, 98, 200)
+region = Rect2(10, 0, 85, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ewom1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6omj"]
 atlas = ExtResource("2_84xb5")
-region = Rect2(161, 0, 98, 200)
+region = Rect2(160, 0, 85, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g48ma"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ndxc")
+"texture": SubResource("AtlasTexture_efjqu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ewom1")
+"texture": SubResource("AtlasTexture_r6omj")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 0.5
+"speed": 4.5
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33ctu"]
-radius = 31.0
+radius = 20.0
 height = 88.0
 
 [node name="Player" type="CharacterBody2D"]
@@ -37,14 +37,13 @@ position = Vector2(159, 114)
 script = ExtResource("1_kiena")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 15)
+position = Vector2(3, 12)
 scale = Vector2(0.5, 0.485)
 sprite_frames = SubResource("SpriteFrames_g48ma")
 animation = &"Idle"
-frame_progress = 0.703796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 14)
+position = Vector2(3, 12)
 shape = SubResource("CapsuleShape2D_33ctu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
