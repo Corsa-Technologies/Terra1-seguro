@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://do8eu7anxsexk"]
+
+[ext_resource type="Script" path="res://GUI/Menus/MenuPrincipal/botãoplay.gd" id="2_kvl8a"]
+
+[node name="Menuprincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kvl8a")
+
+[node name="BotãoPlay" type="Button" parent="."]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 128.0
+offset_right = 647.0
+offset_bottom = 248.0
+text = "PLAY
+(PFV FUNCIONA)"
+
+[connection signal="pressed" from="BotãoPlay" to="." method="_on_botão_play_pressed"]
