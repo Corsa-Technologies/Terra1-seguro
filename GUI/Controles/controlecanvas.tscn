@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6r0hwy3ijx5f"]
+[gd_scene load_steps=10 format=3 uid="uid://6r0hwy3ijx5f"]
 
 [ext_resource type="Script" path="res://GUI/Controles/controletoque.gd" id="1_6ks27"]
 [ext_resource type="Texture2D" uid="uid://c7cn2313mxbrs" path="res://GUI/Controles/controleesquerda.png" id="1_bf6yd"]
@@ -7,9 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://bwm50ffuwcjo1" path="res://GUI/Controles/pressdireita.png" id="4_tjl3u"]
 [ext_resource type="Texture2D" uid="uid://b8xafc84pfoqm" path="res://GUI/Controles/controlepulo.png" id="5_qwhvk"]
 [ext_resource type="Texture2D" uid="uid://co4ji2hklrgnk" path="res://GUI/Controles/presspulo.png" id="6_0dx5n"]
+[ext_resource type="Texture2D" uid="uid://bupescgd3lbwg" path="res://GUI/Controles/descer.png" id="8_6o8df"]
+[ext_resource type="Texture2D" uid="uid://c1qbacnap827p" path="res://GUI/Controles/pressdescer.png" id="9_2yprk"]
 
 [node name="ControleTouch" type="CanvasLayer"]
 script = ExtResource("1_6ks27")
+
+[node name="Descer" type="TouchScreenButton" parent="."]
+position = Vector2(154, 527)
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("8_6o8df")
+texture_pressed = ExtResource("9_2yprk")
+action = "ui_down"
 
 [node name="Esquerda" type="TouchScreenButton" parent="."]
 position = Vector2(21, 440)
@@ -32,6 +41,8 @@ texture_normal = ExtResource("5_qwhvk")
 texture_pressed = ExtResource("6_0dx5n")
 action = "ui_up"
 
+[connection signal="pressed" from="Descer" to="." method="_on_descer_pressed"]
+[connection signal="released" from="Descer" to="." method="_on_descer_released"]
 [connection signal="pressed" from="Esquerda" to="." method="_on_esquerda_pressed"]
 [connection signal="released" from="Esquerda" to="." method="_on_esquerda_released"]
 [connection signal="pressed" from="Direita" to="." method="_on_direita_pressed"]

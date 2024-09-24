@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://do8eu7anxsexk"]
+[gd_scene load_steps=3 format=3 uid="uid://do8eu7anxsexk"]
 
 [ext_resource type="Script" path="res://GUI/Menus/MenuPrincipal/botãoplay.gd" id="2_kvl8a"]
+[ext_resource type="Texture2D" uid="uid://cadpec6iw5l83" path="res://GUI/Menus/MenuPrincipal/transparentLight14.png" id="2_v6tkc"]
 
 [node name="Menuprincipal" type="Control"]
 layout_mode = 3
@@ -19,5 +20,7 @@ offset_right = 647.0
 offset_bottom = 248.0
 text = "PLAY
 (PFV FUNCIONA)"
+icon = ExtResource("2_v6tkc")
+alignment = 0
 
 [connection signal="pressed" from="BotãoPlay" to="." method="_on_botão_play_pressed"]
