@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -350.0
 var canjump := true
 @onready var coyote_timer = $CoyoteTimer as Timer
 @export var buffer_time: float = 0.15
-@export var coyote_time: float = 0.15
+@export var coyote_time: float = 0.1
 var jump_buffered = false
 var buffer_timer = 0.0
 

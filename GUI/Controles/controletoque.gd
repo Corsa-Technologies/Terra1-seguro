@@ -32,8 +32,8 @@ func _on_pulo_released():
 
 
 func _on_descer_pressed():
-	descer.modulate.a = 1.0
+	descer.modulate.a = 0.5
 
 
 func _on_descer_released():
-	descer.modulate.a = 0.5
+	descer.modulate.a = 1.0
