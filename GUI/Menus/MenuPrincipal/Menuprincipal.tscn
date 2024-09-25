@@ -12,15 +12,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_kvl8a")
 
-[node name="BotãoPlay" type="Button" parent="."]
+[node name="BotãoPlay" type="TouchScreenButton" parent="."]
+position = Vector2(653, 213)
+scale = Vector2(2.5625, 2.0625)
+texture_normal = ExtResource("2_v6tkc")
+
+[node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 438.0
-offset_top = 128.0
-offset_right = 647.0
-offset_bottom = 248.0
-text = "PLAY
-(PFV FUNCIONA)"
-icon = ExtResource("2_v6tkc")
-alignment = 0
+offset_left = 516.0
+offset_top = 155.0
+offset_right = 953.0
+offset_bottom = 207.0
+text = "APERTA NO JOGAR E POR FAVOR FUNCIONA SOCORRO"
 
 [connection signal="pressed" from="BotãoPlay" to="." method="_on_botão_play_pressed"]
