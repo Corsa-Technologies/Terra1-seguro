@@ -58,6 +58,8 @@ position = Vector2(1464, 508)
 scale = Vector2(1.6, 1.6)
 texture_normal = ExtResource("8_2yf8t")
 texture_pressed = ExtResource("9_37sfi")
+passby_press = true
+action = "tiro"
 
 [connection signal="pressed" from="Control/Descer" to="." method="_on_descer_pressed"]
 [connection signal="released" from="Control/Descer" to="." method="_on_descer_released"]
