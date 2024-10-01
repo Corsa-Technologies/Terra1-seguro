@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6jbvc0mkpm7c"
-path="res://.godot/imported/Aya_Placeholder.png-4efc03bc1c2027ad45e60c60440938df.ctex"
+uid="uid://3l7d1xkbaat7"
+path="res://.godot/imported/Aya Completo.png-7e66dbca9072d49ec73bb784b6ecc74a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Aya_Placeholder.png"
-dest_files=["res://.godot/imported/Aya_Placeholder.png-4efc03bc1c2027ad45e60c60440938df.ctex"]
+source_file="res://Player/Aya Completo.png"
+dest_files=["res://.godot/imported/Aya Completo.png-7e66dbca9072d49ec73bb784b6ecc74a.ctex"]
 
 [params]
 

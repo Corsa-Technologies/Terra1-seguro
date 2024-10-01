@@ -4,6 +4,7 @@ var SPEED = 300.0
 const JUMP_VELOCITY = -350.0
 var canjump := true
 @onready var coyote_timer = $CoyoteTimer as Timer
+@onready var animated_sprite = $AnimatedSprite2D # Referência ao AnimatedSprite2D
 @export var buffer_time: float = 0.15
 @export var coyote_time: float = 0.1
 var jump_buffered = false
@@ -14,6 +15,7 @@ func _ready():
 
 func pular():
 	velocity.y = JUMP_VELOCITY
+	# A animação de pulo agora será tocada diretamente na _physics_process quando o personagem estiver no ar
 
 func _physics_process(delta):
 	# Adiciona a gravidade
@@ -49,10 +51,19 @@ func _physics_process(delta):
 
 	# Lógica de movimentação.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
+	if direction != 0:
 		velocity.x = direction * SPEED
+		if is_on_floor():
+			animated_sprite.play("run") # Troca para animação de corrida se estiver no chão e se movendo
+		animated_sprite.flip_h = direction < 0 # Inverte o sprite se estiver movendo para a esquerda
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			animated_sprite.play("idle") # Troca para animação de idle se estiver parado no chão
+
+	# Se o personagem estiver no ar, toca a animação de pulo.
+	if not is_on_floor():
+		animated_sprite.play("jump")
 
 	move_and_slide()
 

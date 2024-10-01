@@ -1,8 +1,8 @@
 extends CanvasLayer
-@onready var esquerda = $Esquerda
-@onready var direita = $Direita
-@onready var pulo = $Pulo
-@onready var descer = $Descer
+@onready var esquerda = $Control/Esquerda
+@onready var direita = $Control/Direita
+@onready var pulo = $Control/Pulo
+@onready var descer = $Control/Descer
 
 
 func _on_esquerda_pressed():

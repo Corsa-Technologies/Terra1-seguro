@@ -1,29 +1,81 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2b5a8wa3xoja"]
+[gd_scene load_steps=14 format=3 uid="uid://c2b5a8wa3xoja"]
 
 [ext_resource type="Script" path="res://Player/Scripts/movimento.gd" id="1_kiena"]
+[ext_resource type="Texture2D" uid="uid://3l7d1xkbaat7" path="res://Player/Aya Completo.png" id="2_2ortg"]
 [ext_resource type="PackedScene" uid="uid://6r0hwy3ijx5f" path="res://GUI/Controles/controlecanvas.tscn" id="2_21c6s"]
-[ext_resource type="Texture2D" uid="uid://b6jbvc0mkpm7c" path="res://Player/Aya_Placeholder.png" id="2_84xb5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_efjqu"]
-atlas = ExtResource("2_84xb5")
-region = Rect2(10, 0, 85, 200)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tak2"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(0, 0, 130, 201)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6omj"]
-atlas = ExtResource("2_84xb5")
-region = Rect2(160, 0, 85, 200)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkpy8"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(149, 0, 130, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wad16"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(8, 200, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxt4w"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(298, 0, 130, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhq0x"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(447, 0, 130, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ak6j"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(596, 0, 130, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bqgb"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(745, 0, 130, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxfcj"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(894, 0, 130, 201)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g48ma"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_efjqu")
+"texture": SubResource("AtlasTexture_7tak2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r6omj")
+"texture": SubResource("AtlasTexture_xkpy8")
 }],
 "loop": true,
-"name": &"Idle",
-"speed": 4.5
+"name": &"idle",
+"speed": 0.8
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wad16")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxt4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhq0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ak6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bqgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxfcj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.5
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n7is"]
@@ -36,38 +88,23 @@ z_index = 4
 position = Vector2(159, 114)
 script = ExtResource("1_kiena")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = -292.0
-offset_right = 1189.0
-offset_bottom = -67.0
-grow_vertical = 0
-
-[node name="ControleTouch" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_21c6s")]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, 12)
+position = Vector2(-5, 11)
 scale = Vector2(0.5, 0.485)
 sprite_frames = SubResource("SpriteFrames_g48ma")
-animation = &"Idle"
+animation = &"jump"
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 11.5)
+position = Vector2(-6, 12)
 shape = SubResource("RectangleShape2D_3n7is")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-49, -30)
-zoom = Vector2(1.7, 1.7)
-position_smoothing_speed = 90.0
-drag_horizontal_enabled = true
-drag_horizontal_offset = 0.53
+position = Vector2(3, -24)
+zoom = Vector2(2, 2)
+
+[node name="ControleTouch" parent="." instance=ExtResource("2_21c6s")]
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
