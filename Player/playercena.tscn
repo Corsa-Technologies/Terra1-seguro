@@ -104,6 +104,8 @@ shape = SubResource("RectangleShape2D_3n7is")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(3, -24)
 zoom = Vector2(2, 2)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="ControleTouch" parent="." instance=ExtResource("2_21c6s")]
 

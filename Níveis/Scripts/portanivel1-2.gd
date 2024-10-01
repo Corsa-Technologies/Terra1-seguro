@@ -9,4 +9,5 @@ func _on_body_exited(body):
 	entered=false
 func _process(delta):
 	if entered == true:
+		transicaotela.transition()
 		get_tree().change_scene_to_file("res://Níveis/Nível 2.tscn")

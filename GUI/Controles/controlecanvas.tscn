@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6r0hwy3ijx5f"]
+[gd_scene load_steps=10 format=3 uid="uid://6r0hwy3ijx5f"]
 
 [ext_resource type="Script" path="res://GUI/Controles/controletoque.gd" id="1_6ks27"]
 [ext_resource type="Texture2D" uid="uid://c7cn2313mxbrs" path="res://GUI/Controles/controleesquerda.png" id="1_bf6yd"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bwm50ffuwcjo1" path="res://GUI/Controles/pressdireita.png" id="4_tjl3u"]
 [ext_resource type="Texture2D" uid="uid://b8xafc84pfoqm" path="res://GUI/Controles/controlepulo.png" id="5_qwhvk"]
 [ext_resource type="Texture2D" uid="uid://co4ji2hklrgnk" path="res://GUI/Controles/presspulo.png" id="6_0dx5n"]
+[ext_resource type="Texture2D" uid="uid://dcgi67gumry88" path="res://GUI/Controles/tiro.png" id="8_2yf8t"]
+[ext_resource type="Texture2D" uid="uid://45rd7xy0kdur" path="res://GUI/Controles/presstiro.png" id="9_37sfi"]
 
 [node name="ControleTouch" type="CanvasLayer"]
 script = ExtResource("1_6ks27")
@@ -25,31 +27,37 @@ grow_vertical = 0
 [node name="Descer" type="TouchScreenButton" parent="Control"]
 position = Vector2(156, 637)
 rotation = -1.5708
-scale = Vector2(1.6, 1.6)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("1_bf6yd")
 texture_pressed = ExtResource("2_slaio")
 action = "ui_down"
 
 [node name="Esquerda" type="TouchScreenButton" parent="Control"]
 position = Vector2(20, 444)
-scale = Vector2(1.6, 1.6)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("1_bf6yd")
 texture_pressed = ExtResource("2_slaio")
 action = "ui_left"
 
 [node name="Direita" type="TouchScreenButton" parent="Control"]
 position = Vector2(300, 444)
-scale = Vector2(1.6, 1.6)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("3_ia54u")
 texture_pressed = ExtResource("4_tjl3u")
 action = "ui_right"
 
 [node name="Pulo" type="TouchScreenButton" parent="Control"]
-position = Vector2(1461, 497)
-scale = Vector2(1.525, 1.55)
+position = Vector2(1297, 525)
+scale = Vector2(1.4, 1.423)
 texture_normal = ExtResource("5_qwhvk")
 texture_pressed = ExtResource("6_0dx5n")
 action = "ui_up"
+
+[node name="Tiro" type="TouchScreenButton" parent="Control"]
+position = Vector2(1464, 508)
+scale = Vector2(1.6, 1.6)
+texture_normal = ExtResource("8_2yf8t")
+texture_pressed = ExtResource("9_37sfi")
 
 [connection signal="pressed" from="Control/Descer" to="." method="_on_descer_pressed"]
 [connection signal="released" from="Control/Descer" to="." method="_on_descer_released"]
@@ -59,3 +67,5 @@ action = "ui_up"
 [connection signal="released" from="Control/Direita" to="." method="_on_direita_released"]
 [connection signal="pressed" from="Control/Pulo" to="." method="_on_pulo_pressed"]
 [connection signal="released" from="Control/Pulo" to="." method="_on_pulo_released"]
+[connection signal="pressed" from="Control/Tiro" to="." method="_on_tiro_pressed"]
+[connection signal="released" from="Control/Tiro" to="." method="_on_tiro_released"]

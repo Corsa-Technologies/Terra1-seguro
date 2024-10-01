@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var direita = $Control/Direita
 @onready var pulo = $Control/Pulo
 @onready var descer = $Control/Descer
-
+@onready var tiro = $Control/Tiro
 
 func _on_esquerda_pressed():
 	esquerda.modulate.a = 0.5
@@ -37,3 +37,11 @@ func _on_descer_pressed():
 
 func _on_descer_released():
 	descer.modulate.a = 1.0
+
+
+func _on_tiro_pressed():
+	tiro.modulate.a = 0.5
+
+
+func _on_tiro_released():
+	tiro.modulate.a = 1.0
