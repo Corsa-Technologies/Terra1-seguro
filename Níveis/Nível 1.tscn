@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cl6od350ivx3a"]
+[gd_scene load_steps=16 format=4 uid="uid://cl6od350ivx3a"]
 
 [ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="1_qes8s"]
 [ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="2_7dlmp"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://caaep5o1ebj5r" path="res://Assets/objetos/Trees/1.png" id="6_fqlyo"]
 [ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="7_fv06q"]
 [ext_resource type="Texture2D" uid="uid://c67ev6poxytqe" path="res://Assets/objetos/Stones/1.png" id="8_wll6h"]
-[ext_resource type="Texture2D" uid="uid://ctvqje3xljlob" path="res://Assets/pixil-frame-0.png" id="10_y0yds"]
+[ext_resource type="Texture2D" uid="uid://ctvqje3xljlob" path="res://Assets/objetos/pixil-frame-0.png" id="10_y0yds"]
+[ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Assets/inimigos/inimigo1/inimigo_1.tscn" id="11_j75aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5wy2"]
 texture = ExtResource("1_qes8s")
@@ -646,6 +647,12 @@ texture = ExtResource("6_fqlyo")
 z_index = -1
 position = Vector2(437, 244)
 texture = ExtResource("5_l6u1q")
+
+[node name="Inimigo1" parent="." instance=ExtResource("11_j75aj")]
+position = Vector2(557, 238)
+
+[node name="Inimigo2" parent="." instance=ExtResource("11_j75aj")]
+position = Vector2(310, 238)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

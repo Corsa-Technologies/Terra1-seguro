@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctvqje3xljlob"
-path="res://.godot/imported/pixil-frame-0.png-1e2e14a6fca0ab207413f8785ae4b7df.ctex"
+uid="uid://me3ihp8vfgwg"
+path="res://.godot/imported/Walk.png-78418808075e6e61772ef4de0d9ce3df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-1e2e14a6fca0ab207413f8785ae4b7df.ctex"]
+source_file="res://Assets/inimigos/inimigo1/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-78418808075e6e61772ef4de0d9ce3df.ctex"]
 
 [params]
 
