@@ -609,8 +609,8 @@ script = ExtResource("3_td841")
 position = Vector2(26.5, -9.5)
 shape = SubResource("RectangleShape2D_wie55")
 
-[node name="porta placeholder" type="Sprite2D" parent="."]
-position = Vector2(1011.25, 220)
+[node name="porta placeholder" type="Sprite2D" parent="Area2D"]
+position = Vector2(16.25, -13)
 scale = Vector2(1.535, 1.48)
 texture = ExtResource("10_y0yds")
 
@@ -649,10 +649,15 @@ position = Vector2(437, 244)
 texture = ExtResource("5_l6u1q")
 
 [node name="Inimigo1" parent="." instance=ExtResource("11_j75aj")]
-position = Vector2(557, 238)
+position = Vector2(-600, 230)
 
-[node name="Inimigo2" parent="." instance=ExtResource("11_j75aj")]
-position = Vector2(310, 238)
+[node name="patrulha1" type="Node2D" parent="."]
+
+[node name="patrulha 1" type="Marker2D" parent="patrulha1"]
+position = Vector2(456, 239)
+
+[node name="patrulha 2" type="Marker2D" parent="patrulha1"]
+position = Vector2(614, 233)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

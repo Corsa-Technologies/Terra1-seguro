@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1e6hqp7yidse"]
+
+[ext_resource type="Script" path="res://Assets/inimigos/inimigo1/ataque/projectile.gd" id="1_lb75j"]
+[ext_resource type="Texture2D" uid="uid://3ki6fsjdsxce" path="res://Assets/inimigos/inimigo1/ataque/All_Fire_Bullet_Pixel_16x16_04.png" id="2_f5va5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1uhw"]
+atlas = ExtResource("2_f5va5")
+region = Rect2(256, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj40p"]
+atlas = ExtResource("2_f5va5")
+region = Rect2(272, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt0sp"]
+atlas = ExtResource("2_f5va5")
+region = Rect2(288, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y82ij"]
+atlas = ExtResource("2_f5va5")
+region = Rect2(304, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qt540"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1uhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj40p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt0sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y82ij")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rehmw"]
+size = Vector2(52, 16)
+
+[node name="projectile" type="CharacterBody2D"]
+script = ExtResource("1_lb75j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(18.5, -8.5)
+scale = Vector2(3.3125, 2.0625)
+sprite_frames = SubResource("SpriteFrames_qt540")
+frame_progress = 0.588718
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, -8)
+shape = SubResource("RectangleShape2D_rehmw")
