@@ -1,8 +1,24 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2b5a8wa3xoja"]
+[gd_scene load_steps=22 format=3 uid="uid://c2b5a8wa3xoja"]
 
 [ext_resource type="Script" path="res://Player/Scripts/movimento.gd" id="1_kiena"]
 [ext_resource type="Texture2D" uid="uid://3l7d1xkbaat7" path="res://Player/Aya Completo.png" id="2_2ortg"]
 [ext_resource type="PackedScene" uid="uid://6r0hwy3ijx5f" path="res://GUI/Controles/controlecanvas.tscn" id="2_21c6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxdpw"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(0, 600, 134, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1j0d"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(147, 600, 134, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0hsb"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(294, 600, 134, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ichfa"]
+atlas = ExtResource("2_2ortg")
+region = Rect2(441, 600, 134, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tak2"]
 atlas = ExtResource("2_2ortg")
@@ -54,6 +70,23 @@ region = Rect2(0, 200, 150, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g48ma"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxdpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1j0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0hsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ichfa")
+}],
+"loop": false,
+"name": &"ataque",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7tak2")
@@ -112,7 +145,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n7is"]
-size = Vector2(32, 87)
+size = Vector2(38, 87)
 
 [node name="Player" type="CharacterBody2D"]
 light_mask = 2
@@ -125,13 +158,14 @@ script = ExtResource("1_kiena")
 position = Vector2(-5, 11)
 scale = Vector2(0.5, 0.485)
 sprite_frames = SubResource("SpriteFrames_g48ma")
-animation = &"jump"
+animation = &"ataque"
+frame_progress = 0.116125
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 12)
+position = Vector2(-10, 12)
 shape = SubResource("RectangleShape2D_3n7is")
 
 [node name="Camera2D" type="Camera2D" parent="."]
