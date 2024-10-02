@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2b5a8wa3xoja"]
+[gd_scene load_steps=21 format=3 uid="uid://c2b5a8wa3xoja"]
 
 [ext_resource type="Script" path="res://Player/Scripts/movimento.gd" id="1_kiena"]
 [ext_resource type="Texture2D" uid="uid://3l7d1xkbaat7" path="res://Player/Aya Completo.png" id="2_2ortg"]
@@ -52,21 +52,17 @@ region = Rect2(745, 0, 130, 201)
 atlas = ExtResource("2_2ortg")
 region = Rect2(894, 0, 130, 201)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihwnh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfkgm"]
 atlas = ExtResource("2_2ortg")
-region = Rect2(150, 200, 150, 200)
+region = Rect2(0, 800, 150, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h4fiy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbfgy"]
 atlas = ExtResource("2_2ortg")
-region = Rect2(300, 200, 150, 200)
+region = Rect2(150, 800, 150, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1fvk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdupt"]
 atlas = ExtResource("2_2ortg")
-region = Rect2(450, 200, 150, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n2wrs"]
-atlas = ExtResource("2_2ortg")
-region = Rect2(0, 200, 150, 200)
+region = Rect2(300, 800, 150, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g48ma"]
 animations = [{
@@ -128,16 +124,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ihwnh")
+"texture": SubResource("AtlasTexture_nfkgm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h4fiy")
+"texture": SubResource("AtlasTexture_pbfgy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b1fvk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n2wrs")
+"texture": SubResource("AtlasTexture_xdupt")
 }],
 "loop": false,
 "name": &"tiro",
@@ -158,8 +151,9 @@ script = ExtResource("1_kiena")
 position = Vector2(-5, 11)
 scale = Vector2(0.5, 0.485)
 sprite_frames = SubResource("SpriteFrames_g48ma")
-animation = &"ataque"
-frame_progress = 0.116125
+animation = &"tiro"
+frame = 2
+frame_progress = 1.0
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
