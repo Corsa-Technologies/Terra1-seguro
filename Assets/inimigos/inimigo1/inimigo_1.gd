@@ -87,7 +87,7 @@ func shoot_projectile():
 		return
 
 	# Define a posição inicial do projétil, um pouco à frente do inimigo
-	projectile.global_position = global_position + Vector2(20 * $AnimatedSprite2D.scale.x, 0)
+	projectile.global_position = global_position + Vector2(0 * $AnimatedSprite2D.scale.x, 0)
 
 	# Define a direção do projétil como a direção do player
 	var direction = (player.global_position - projectile.global_position).normalized()

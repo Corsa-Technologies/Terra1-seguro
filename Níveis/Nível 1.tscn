@@ -594,6 +594,7 @@ size = Vector2(73, 145)
 
 [node name="Player" parent="." instance=ExtResource("3_inqfj")]
 position = Vector2(-333, 231)
+collision_mask = 1
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 position = Vector2(44, 4)
@@ -649,7 +650,7 @@ position = Vector2(437, 244)
 texture = ExtResource("5_l6u1q")
 
 [node name="Inimigo1" parent="." instance=ExtResource("11_j75aj")]
-position = Vector2(-762, 232)
+position = Vector2(-673, 197)
 collision_layer = 2
 
 [node name="patrulha1" type="Node2D" parent="."]

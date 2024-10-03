@@ -1,6 +1,6 @@
 extends CharacterBody2D 
 
-@export var SPEED = 100
+@export var SPEED = 600
 
 var direction: Vector2  # A direção do projétil
 
@@ -9,7 +9,7 @@ func _ready():
 	rotation = direction.angle()  # Ajusta a rotação para a direção
 
 	# Inicia a movimentação do projétil
-	await get_tree().create_timer(5).timeout  # Espera 5 segundos
+	await get_tree().create_timer(3).timeout  # Espera 5 segundos
 	queue_free()  # Remove o projétil da cena
 
 func _physics_process(delta):

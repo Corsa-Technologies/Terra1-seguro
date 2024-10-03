@@ -29,21 +29,21 @@ offset_bottom = -2.0
 grow_vertical = 0
 
 [node name="Descer" type="TouchScreenButton" parent="Control"]
-position = Vector2(142, 509)
+position = Vector2(148, 524)
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("2_tnwsv")
 texture_pressed = ExtResource("3_m0ms0")
 action = "ui_down"
 
 [node name="Esquerda" type="TouchScreenButton" parent="Control"]
-position = Vector2(60, 450)
+position = Vector2(45, 451)
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("4_8tt5h")
 texture_pressed = ExtResource("5_i6lfy")
 action = "ui_left"
 
 [node name="Direita" type="TouchScreenButton" parent="Control"]
-position = Vector2(204, 450)
+position = Vector2(227, 451)
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("5_05swi")
 texture_pressed = ExtResource("7_bj82w")

@@ -151,13 +151,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxhbb"]
-size = Vector2(17, 66)
+size = Vector2(34, 63.3571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ghj"]
-size = Vector2(371, 95)
+size = Vector2(371, 78.25)
 
 [node name="Inimigo1" type="CharacterBody2D"]
-position = Vector2(46, 17)
 script = ExtResource("1_ewo05")
 projectile_scene = ExtResource("5_lq8vd")
 
@@ -165,14 +164,15 @@ projectile_scene = ExtResource("5_lq8vd")
 light_mask = 2
 visibility_layer = 2
 texture_filter = 1
-position = Vector2(47, -21)
-scale = Vector2(1.27344, 1.23649)
+position = Vector2(16, -31)
+scale = Vector2(1.4, 1.359)
 sprite_frames = SubResource("SpriteFrames_yla2x")
 animation = &"shot1"
 frame_progress = 0.859789
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31, 23)
+position = Vector2(5.96046e-08, 7.35)
+scale = Vector2(1.4, 1.4)
 shape = SubResource("RectangleShape2D_uxhbb")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -180,10 +180,11 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(39.5, 7.5)
+position = Vector2(1, -20.875)
 shape = SubResource("RectangleShape2D_i4ghj")
 
 [node name="projectile" parent="." instance=ExtResource("5_lq8vd")]
+position = Vector2(29, 529)
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
