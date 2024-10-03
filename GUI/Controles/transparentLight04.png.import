@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duqqcf0320jak"
-path="res://.godot/imported/controledireita.png-57751a94f0bbb90b72d2f528446c3af1.ctex"
+uid="uid://cqvjevq3pnr2l"
+path="res://.godot/imported/transparentLight04.png-3372c5218af2c41363c4bfdddebe59b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/controledireita.png"
-dest_files=["res://.godot/imported/controledireita.png-57751a94f0bbb90b72d2f528446c3af1.ctex"]
+source_file="res://GUI/Controles/transparentLight04.png"
+dest_files=["res://.godot/imported/transparentLight04.png-3372c5218af2c41363c4bfdddebe59b5.ctex"]
 
 [params]
 

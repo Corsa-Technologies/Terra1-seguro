@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupescgd3lbwg"
-path="res://.godot/imported/descer.png-49bf8810f418bffc00bac3e0bef205f5.ctex"
+uid="uid://chfpd30ejlcsy"
+path="res://.godot/imported/transparentDark04.png-42ac7eedaaf4bf58906bca613d2bd66f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/descer.png"
-dest_files=["res://.godot/imported/descer.png-49bf8810f418bffc00bac3e0bef205f5.ctex"]
+source_file="res://GUI/Controles/transparentDark04.png"
+dest_files=["res://.godot/imported/transparentDark04.png-42ac7eedaaf4bf58906bca613d2bd66f.ctex"]
 
 [params]
 

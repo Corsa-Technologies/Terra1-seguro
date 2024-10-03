@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://6r0hwy3ijx5f"]
+[gd_scene load_steps=14 format=3 uid="uid://6r0hwy3ijx5f"]
 
 [ext_resource type="Script" path="res://GUI/Controles/controletoque.gd" id="1_6ks27"]
-[ext_resource type="Texture2D" uid="uid://c7cn2313mxbrs" path="res://GUI/Controles/controleesquerda.png" id="1_bf6yd"]
-[ext_resource type="Texture2D" uid="uid://d1nu6jmo36gj0" path="res://GUI/Controles/pressesquerda.png" id="2_slaio"]
-[ext_resource type="Texture2D" uid="uid://duqqcf0320jak" path="res://GUI/Controles/controledireita.png" id="3_ia54u"]
-[ext_resource type="Texture2D" uid="uid://bwm50ffuwcjo1" path="res://GUI/Controles/pressdireita.png" id="4_tjl3u"]
+[ext_resource type="Texture2D" uid="uid://cuea70ofd5epd" path="res://GUI/Controles/transparentLight08.png" id="2_tnwsv"]
+[ext_resource type="Texture2D" uid="uid://be1w83reg4i6q" path="res://GUI/Controles/transparentDark08.png" id="3_m0ms0"]
+[ext_resource type="Texture2D" uid="uid://dt5426d345kep" path="res://GUI/Controles/transparentLight03.png" id="4_8tt5h"]
+[ext_resource type="Texture2D" uid="uid://cqvjevq3pnr2l" path="res://GUI/Controles/transparentLight04.png" id="5_05swi"]
+[ext_resource type="Texture2D" uid="uid://dwepdrbftpkca" path="res://GUI/Controles/transparentDark03.png" id="5_i6lfy"]
 [ext_resource type="Texture2D" uid="uid://b8xafc84pfoqm" path="res://GUI/Controles/controlepulo.png" id="5_qwhvk"]
 [ext_resource type="Texture2D" uid="uid://co4ji2hklrgnk" path="res://GUI/Controles/presspulo.png" id="6_0dx5n"]
+[ext_resource type="Texture2D" uid="uid://chfpd30ejlcsy" path="res://GUI/Controles/transparentDark04.png" id="7_bj82w"]
 [ext_resource type="Texture2D" uid="uid://dcl5urr1u45hj" path="res://GUI/Controles/tiro.png" id="8_1tkvm"]
 [ext_resource type="Texture2D" uid="uid://bv5mmm0gm16r" path="res://GUI/Controles/presstiro.png" id="9_jfr4v"]
 [ext_resource type="Texture2D" uid="uid://dcgi67gumry88" path="res://GUI/Controles/ataque.png" id="10_np2q5"]
@@ -27,30 +29,29 @@ offset_bottom = -2.0
 grow_vertical = 0
 
 [node name="Descer" type="TouchScreenButton" parent="Control"]
-position = Vector2(156, 637)
-rotation = -1.5708
+position = Vector2(142, 509)
 scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("1_bf6yd")
-texture_pressed = ExtResource("2_slaio")
+texture_normal = ExtResource("2_tnwsv")
+texture_pressed = ExtResource("3_m0ms0")
 action = "ui_down"
 
 [node name="Esquerda" type="TouchScreenButton" parent="Control"]
-position = Vector2(20, 444)
+position = Vector2(60, 450)
 scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("1_bf6yd")
-texture_pressed = ExtResource("2_slaio")
+texture_normal = ExtResource("4_8tt5h")
+texture_pressed = ExtResource("5_i6lfy")
 action = "ui_left"
 
 [node name="Direita" type="TouchScreenButton" parent="Control"]
-position = Vector2(300, 444)
+position = Vector2(204, 450)
 scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("3_ia54u")
-texture_pressed = ExtResource("4_tjl3u")
+texture_normal = ExtResource("5_05swi")
+texture_pressed = ExtResource("7_bj82w")
 action = "ui_right"
 
 [node name="Pulo" type="TouchScreenButton" parent="Control"]
-position = Vector2(1307, 515)
-scale = Vector2(1.4, 1.423)
+position = Vector2(1455, 501)
+scale = Vector2(1.574, 1.6)
 texture_normal = ExtResource("5_qwhvk")
 texture_pressed = ExtResource("6_0dx5n")
 action = "ui_up"
@@ -64,8 +65,8 @@ passby_press = true
 action = "tiro"
 
 [node name="Ataque" type="TouchScreenButton" parent="Control"]
-position = Vector2(1456, 502)
-scale = Vector2(1.6, 1.6)
+position = Vector2(1312, 510)
+scale = Vector2(1.4, 1.4)
 texture_normal = ExtResource("10_np2q5")
 texture_pressed = ExtResource("11_adolr")
 action = "ataque"
