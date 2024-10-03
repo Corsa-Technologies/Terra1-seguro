@@ -120,7 +120,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shot1",
-"speed": 13.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -150,10 +150,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxhbb"]
-size = Vector2(32, 70)
+size = Vector2(17, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ghj"]
-size = Vector2(291, 20)
+size = Vector2(371, 95)
 
 [node name="Inimigo1" type="CharacterBody2D"]
 position = Vector2(46, 17)
@@ -170,14 +170,15 @@ animation = &"shot1"
 frame_progress = 0.859789
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 4
-position = Vector2(41, 23)
+position = Vector2(31, 23)
 shape = SubResource("RectangleShape2D_uxhbb")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(42.5, 0)
+position = Vector2(39.5, 7.5)
 shape = SubResource("RectangleShape2D_i4ghj")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
