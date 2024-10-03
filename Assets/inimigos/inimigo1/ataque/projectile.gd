@@ -1,16 +1,17 @@
-extends CharacterBody2D
+extends CharacterBody2D 
 
 @export var SPEED = 100
 
-var dir : float
-var spawnPos : Vector2
-var spawnRot : float
+var direction: Vector2  # A direção do projétil
 
 func _ready():
-	global_position = spawnPos
-	global_rotation = spawnRot
-	
+	# Define a rotação do projétil para a direção de movimento
+	rotation = direction.angle()  # Ajusta a rotação para a direção
+
+	# Inicia a movimentação do projétil
+	await get_tree().create_timer(5).timeout  # Espera 5 segundos
+	queue_free()  # Remove o projétil da cena
 
 func _physics_process(delta):
-	velocity = Vector2(0, -SPEED).rotated(dir)
-	move_and_slide()
+	velocity = direction * SPEED  # Move o projétil na direção especificada
+	move_and_slide()  # Aplica a movimentação
