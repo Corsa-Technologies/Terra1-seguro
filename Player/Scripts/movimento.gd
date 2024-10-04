@@ -1,23 +1,45 @@
 extends CharacterBody2D
 
 var SPEED = 300.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -450.0
 var canjump := true
 var is_shooting = false # Variável para controlar se o personagem está atirando
 var is_attacking = false # Variável para controlar se o personagem está atacando
 @onready var coyote_timer = $CoyoteTimer as Timer
 @onready var animated_sprite = $AnimatedSprite2D # Referência ao AnimatedSprite2D
+@onready var health_label = $ControleTouch/Control/HealthText # Referência ao Label de vida
 @export var buffer_time: float = 0.15
 @export var coyote_time: float = 0.1
+
+# Variáveis para a vida
+var max_health: int = 100
+var current_health: int = 100
+
 var jump_buffered = false
 var buffer_timer = 0.0
 
 func _ready():
 	coyote_timer.wait_time = coyote_time
+	update_health_display() # Atualiza a exibição da vida no início
+
+func take_damage(amount: int):
+	current_health -= amount
+	current_health = clamp(current_health, 0, max_health)
+	update_health_display()
+	
+	if current_health <= 0:
+		die() # Implementar a lógica de morte se necessário
+
+func heal(amount: int):
+	current_health += amount
+	current_health = clamp(current_health, 0, max_health)
+	update_health_display()
+
+func update_health_display():
+	health_label.text = str(current_health) + "/" + str(max_health)
 
 func pular():
 	velocity.y = JUMP_VELOCITY
-	# A animação de pulo agora será tocada diretamente na _physics_process quando o personagem estiver no ar
 
 func _physics_process(delta):
 	# Adiciona a gravidade
@@ -70,7 +92,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _input(event : InputEvent):
+func _input(event: InputEvent):
 	if event.is_action_pressed("ui_down") and is_on_floor():
 		position.y += 1
 
@@ -102,3 +124,8 @@ func _on_attack_animation_finished():
 
 func _on_coyote_timer_timeout() -> void:
 	canjump = false
+
+# Adicione uma função para a lógica de morte, se necessário
+func die():
+	print("O jogador morreu!")  # Mensagem de depuração
+	queue_free()  # Remove o jogador da cena (ou outra lógica de morte)

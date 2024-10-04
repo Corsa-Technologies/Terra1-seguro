@@ -71,6 +71,13 @@ texture_normal = ExtResource("10_np2q5")
 texture_pressed = ExtResource("11_adolr")
 action = "ataque"
 
+[node name="HealthText" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -67.0
+offset_right = 246.0
+offset_bottom = 31.0
+
 [connection signal="pressed" from="Control/Descer" to="." method="_on_descer_pressed"]
 [connection signal="released" from="Control/Descer" to="." method="_on_descer_released"]
 [connection signal="pressed" from="Control/Esquerda" to="." method="_on_esquerda_pressed"]

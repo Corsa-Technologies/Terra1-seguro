@@ -167,9 +167,6 @@ zoom = Vector2(2, 2)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="ShootTarget" type="Marker2D" parent="."]
-position = Vector2(-15, 3)
-
 [node name="ControleTouch" parent="." instance=ExtResource("2_21c6s")]
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
