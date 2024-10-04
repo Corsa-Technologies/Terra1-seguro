@@ -1,19 +1,19 @@
 [gd_scene load_steps=16 format=4 uid="uid://cl6od350ivx3a"]
 
-[ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="1_qes8s"]
-[ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="2_7dlmp"]
-[ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="3_inqfj"]
-[ext_resource type="Script" path="res://Níveis/Scripts/portanivel1-2.gd" id="3_td841"]
-[ext_resource type="Texture2D" uid="uid://dbfrw5ntpwgfw" path="res://Assets/objetos/Trees/18.png" id="4_7fymu"]
-[ext_resource type="Texture2D" uid="uid://c3p55bdivoxj6" path="res://Assets/objetos/Trees/6.png" id="5_l6u1q"]
-[ext_resource type="Texture2D" uid="uid://caaep5o1ebj5r" path="res://Assets/objetos/Trees/1.png" id="6_fqlyo"]
-[ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="7_fv06q"]
-[ext_resource type="Texture2D" uid="uid://c67ev6poxytqe" path="res://Assets/objetos/Stones/1.png" id="8_wll6h"]
-[ext_resource type="Texture2D" uid="uid://ctvqje3xljlob" path="res://Assets/objetos/pixil-frame-0.png" id="10_y0yds"]
-[ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Assets/inimigos/inimigo1/inimigo_1.tscn" id="11_j75aj"]
+[ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="1_rtybn"]
+[ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="2_pakg0"]
+[ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="3_qmwhq"]
+[ext_resource type="Script" path="res://Níveis/Nível1/portanivel1-2.gd" id="4_c11l6"]
+[ext_resource type="Texture2D" uid="uid://ctvqje3xljlob" path="res://Assets/objetos/pixil-frame-0.png" id="5_bj5pn"]
+[ext_resource type="Texture2D" uid="uid://dbfrw5ntpwgfw" path="res://Assets/objetos/Trees/18.png" id="6_dg5ta"]
+[ext_resource type="Texture2D" uid="uid://c67ev6poxytqe" path="res://Assets/objetos/Stones/1.png" id="7_k1e8d"]
+[ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="8_eckob"]
+[ext_resource type="Texture2D" uid="uid://caaep5o1ebj5r" path="res://Assets/objetos/Trees/1.png" id="9_rfnlw"]
+[ext_resource type="Texture2D" uid="uid://c3p55bdivoxj6" path="res://Assets/objetos/Trees/6.png" id="10_aqtmk"]
+[ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Níveis/Nível1/inimigo_1.tscn" id="11_8x3ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5wy2"]
-texture = ExtResource("1_qes8s")
+texture = ExtResource("2_pakg0")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -269,7 +269,7 @@ texture_region_size = Vector2i(32, 32)
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh0h8"]
-texture = ExtResource("2_7dlmp")
+texture = ExtResource("3_qmwhq")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -592,9 +592,8 @@ size = Vector2(73, 145)
 
 [node name="Nível1" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("3_inqfj")]
+[node name="Player" parent="." instance=ExtResource("1_rtybn")]
 position = Vector2(-333, 231)
-collision_mask = 1
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 position = Vector2(44, 4)
@@ -604,7 +603,7 @@ use_kinematic_bodies = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(995, 233)
-script = ExtResource("3_td841")
+script = ExtResource("4_c11l6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(26.5, -9.5)
@@ -613,7 +612,7 @@ shape = SubResource("RectangleShape2D_wie55")
 [node name="porta placeholder" type="Sprite2D" parent="Area2D"]
 position = Vector2(16.25, -13)
 scale = Vector2(1.535, 1.48)
-texture = ExtResource("10_y0yds")
+texture = ExtResource("5_bj5pn")
 
 [node name="Decorações" type="Node2D" parent="."]
 
@@ -621,35 +620,35 @@ texture = ExtResource("10_y0yds")
 z_index = -1
 position = Vector2(259.5, 221.5)
 scale = Vector2(1.32813, 1.60204)
-texture = ExtResource("4_7fymu")
+texture = ExtResource("6_dg5ta")
 
 [node name="3" type="Sprite2D" parent="Decorações"]
 z_index = -1
 position = Vector2(299, 290)
-texture = ExtResource("8_wll6h")
+texture = ExtResource("7_k1e8d")
 
 [node name="2" type="Sprite2D" parent="Decorações"]
 z_index = -1
 position = Vector2(527, 289)
-texture = ExtResource("8_wll6h")
+texture = ExtResource("7_k1e8d")
 
 [node name="7" type="Sprite2D" parent="Decorações"]
 z_index = -1
 position = Vector2(157, 283)
-texture = ExtResource("7_fv06q")
+texture = ExtResource("8_eckob")
 
 [node name="1" type="Sprite2D" parent="Decorações"]
 z_index = -1
 position = Vector2(728, 201)
 scale = Vector2(2.19355, 1.77206)
-texture = ExtResource("6_fqlyo")
+texture = ExtResource("9_rfnlw")
 
 [node name="6" type="Sprite2D" parent="Decorações"]
 z_index = -1
 position = Vector2(437, 244)
-texture = ExtResource("5_l6u1q")
+texture = ExtResource("10_aqtmk")
 
-[node name="Inimigo1" parent="." instance=ExtResource("11_j75aj")]
+[node name="Inimigo1" parent="." instance=ExtResource("11_8x3ve")]
 position = Vector2(-673, 197)
 collision_layer = 2
 

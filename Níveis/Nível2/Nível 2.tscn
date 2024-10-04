@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=4 uid="uid://bpaack3q178le"]
 
-[ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="1_jqrrb"]
-[ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="2_xc8er"]
-[ext_resource type="Texture2D" uid="uid://cnbk5xkyswc1f" path="res://Assets/objetos/Trees/7.png" id="3_pj6xu"]
-[ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="4_iaqla"]
-[ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="5_1gnon"]
+[ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="1_lr12k"]
+[ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="2_eiaww"]
+[ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="3_wdg5p"]
+[ext_resource type="Texture2D" uid="uid://cnbk5xkyswc1f" path="res://Assets/objetos/Trees/7.png" id="4_aooiu"]
+[ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="5_wbhe1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xv8p6"]
-texture = ExtResource("1_jqrrb")
+texture = ExtResource("1_lr12k")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -277,7 +277,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xv8p6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kol7k"]
-texture = ExtResource("2_xc8er")
+texture = ExtResource("2_eiaww")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/physics_layer_0/polygon_0/one_way = true
@@ -602,7 +602,7 @@ sources/0 = SubResource("TileSetAtlasSource_kol7k")
 tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 131072, 0, 3, 196608, 0, 4, 262144, 0, 5, 327680, 0, 6, 393216, 0, 7, 458752, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j20fj"]
-texture = ExtResource("1_jqrrb")
+texture = ExtResource("1_lr12k")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -885,7 +885,7 @@ tile_map_data = PackedByteArray("AAADAPv/AAAGAAYAAAADAPz/AAAGAAYAAAADAP3/AAAGAAY
 tile_set = SubResource("TileSet_se23p")
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("4_iaqla")]
+[node name="Player" parent="." instance=ExtResource("3_wdg5p")]
 position = Vector2(499, 239)
 
 [node name="Decorações" type="Node2D" parent="."]
@@ -893,9 +893,9 @@ position = Vector2(349, 262)
 
 [node name="7" type="Sprite2D" parent="Decorações"]
 z_index = -1
-texture = ExtResource("3_pj6xu")
+texture = ExtResource("4_aooiu")
 
 [node name="6" type="Sprite2D" parent="Decorações"]
 z_index = -1
 position = Vector2(210, 23)
-texture = ExtResource("5_1gnon")
+texture = ExtResource("5_wbhe1")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://d2gp1dbwx1wdj"]
 
 [ext_resource type="Texture2D" uid="uid://bqnuc26vom4bv" path="res://Assets/inimigos/inimigo1/Idle.png" id="1_a1xoq"]
-[ext_resource type="Script" path="res://Assets/inimigos/inimigo1/inimigo_1.gd" id="1_ewo05"]
+[ext_resource type="Script" path="res://Níveis/Nível1/inimigo_1.gd" id="1_ewo05"]
 [ext_resource type="Texture2D" uid="uid://me3ihp8vfgwg" path="res://Assets/inimigos/inimigo1/Walk.png" id="3_4lqhr"]
 [ext_resource type="Texture2D" uid="uid://dpogxj2bidkms" path="res://Assets/inimigos/inimigo1/Shot_1.png" id="3_ps7l4"]
 [ext_resource type="PackedScene" uid="uid://c1e6hqp7yidse" path="res://Assets/inimigos/inimigo1/ataque/projectile.tscn" id="5_lq8vd"]

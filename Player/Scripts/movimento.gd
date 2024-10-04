@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody2D 
 
 var SPEED = 300.0
 const JUMP_VELOCITY = -450.0
@@ -22,22 +22,26 @@ func _ready():
 	coyote_timer.wait_time = coyote_time
 	update_health_display() # Atualiza a exibição da vida no início
 
+# Função para receber dano
 func take_damage(amount: int):
 	current_health -= amount
 	current_health = clamp(current_health, 0, max_health)
 	update_health_display()
 	
 	if current_health <= 0:
-		die() # Implementar a lógica de morte se necessário
+		die() # Chama a função de morte
 
+# Função para curar o jogador (opcional)
 func heal(amount: int):
 	current_health += amount
 	current_health = clamp(current_health, 0, max_health)
 	update_health_display()
 
+# Atualizar a exibição de vida no LabelText
 func update_health_display():
 	health_label.text = str(current_health) + "/" + str(max_health)
 
+# Função de pulo
 func pular():
 	velocity.y = JUMP_VELOCITY
 
@@ -92,6 +96,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+# Função que lida com inputs de tiro e ataque
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_down") and is_on_floor():
 		position.y += 1
@@ -112,20 +117,20 @@ func _input(event: InputEvent):
 		# Conecta o sinal de "animation_finished" com a função que será chamada quando a animação de ataque terminar
 		animated_sprite.connect("animation_finished", Callable(self, "_on_attack_animation_finished"))
 
+# Função chamada quando a animação de tiro termina
 func _on_shoot_animation_finished():
-	# Quando a animação de tiro termina, voltamos ao estado normal
 	is_shooting = false
 	animated_sprite.disconnect("animation_finished", Callable(self, "_on_shoot_animation_finished"))
 
+# Função chamada quando a animação de ataque termina
 func _on_attack_animation_finished():
-	# Quando a animação de ataque termina, voltamos ao estado normal
 	is_attacking = false
 	animated_sprite.disconnect("animation_finished", Callable(self, "_on_attack_animation_finished"))
 
+# Função para quando o tempo do coyote timer acaba
 func _on_coyote_timer_timeout() -> void:
 	canjump = false
 
-# Adicione uma função para a lógica de morte, se necessário
+# Função de morte
 func die():
-	print("O jogador morreu!")  # Mensagem de depuração
-	queue_free()  # Remove o jogador da cena (ou outra lógica de morte)
+	get_tree().reload_current_scene() # Recarrega a cena atual

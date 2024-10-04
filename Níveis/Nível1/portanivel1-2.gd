@@ -15,4 +15,4 @@ func _on_body_exited(body):
 func _process(delta):
 	if entered:
 		transicaotela.transition()
-		get_tree().change_scene_to_file("res://Níveis/Nível 2.tscn")
+		get_tree().change_scene_to_file("res://Níveis/Nível2/Nível 2.tscn")
