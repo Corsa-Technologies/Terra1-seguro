@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var gravity: float = 500.0
 @export var patrol_tolerance: float = 10.0
 @export var projectile_scene: PackedScene  # Referência à cena do projétil
-@export var shoot_delay: float = 0.5  # Intervalo de disparo em segundos
+@export var shoot_delay: float = 0.1  # Intervalo de disparo em segundos
 
 var patrol_points: Array = []
 var current_patrol_index: int = 0
@@ -13,14 +13,18 @@ var player: Node2D = null
 var can_shoot: bool = true  # Controle para evitar múltiplos disparos
 
 func _ready():
-	var patrol_parent = get_parent().get_node("patrulha1")
-	for point in patrol_parent.get_children():
-		if point is Marker2D:
-			patrol_points.append(point)
+	# Verifica se o nó 'patrulha1' existe como filho do inimigo
+	if has_node("patrulha1"):
+		var patrol_parent = $patrulha1
+		for point in patrol_parent.get_children():
+			if point is Marker2D:
+				patrol_points.append(point.global_position)  # Usa a posição global dos Markers2D
+	else:
+		print("Erro: Nó 'patrulha1' não encontrado no inimigo!")
 	
 	# Conectar sinais da Area2D (DetectionArea)
-	$DetectionArea.connect("body_entered", Callable(self, "_on_DetectionArea_body_entered"))
-	$DetectionArea.connect("body_exited", Callable(self, "_on_DetectionArea_body_exited"))
+	$DetectionArea.connect("body_entered", Callable(self, "_on_detection_area_body_entered"))
+	$DetectionArea.connect("body_exited", Callable(self, "_on_detection_area_body_exited"))
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
@@ -34,11 +38,14 @@ func _physics_process(delta):
 			await get_tree().create_timer(shoot_delay).timeout  # Espera o tempo de disparo
 			can_shoot = true  # Reativa o disparo após o intervalo
 	else:
+		# Lógica de patrulha entre os pontos globais dos Markers2D
 		if patrol_points.size() > 0:
-			var target_position = patrol_points[current_patrol_index].position
-			var direction = (target_position - position).normalized()
+			var target_position = patrol_points[current_patrol_index]  # Usa a posição global
+			var direction = (target_position - global_position).normalized()  # Compara com a posição global
+
 			velocity.x = direction.x * speed
 
+			# Atualiza a escala do sprite para refletir a direção
 			if direction.x > 0:
 				$AnimatedSprite2D.scale.x = 1
 			elif direction.x < 0:
@@ -46,7 +53,8 @@ func _physics_process(delta):
 
 			move_and_slide()
 
-			if position.distance_to(target_position) < patrol_tolerance:
+			# Verifica se o inimigo chegou ao ponto de patrulha
+			if global_position.distance_to(target_position) < patrol_tolerance:
 				current_patrol_index = (current_patrol_index + 1) % patrol_points.size()
 
 			$AnimatedSprite2D.play("walk")
@@ -67,7 +75,7 @@ func _on_detection_area_body_exited(body):
 
 # Função para fazer o inimigo olhar para o player
 func look_at_player():
-	var direction = (player.position - position).normalized()
+	var direction = (player.global_position - global_position).normalized()
 	if direction.x > 0:
 		$AnimatedSprite2D.scale.x = 1
 	else:

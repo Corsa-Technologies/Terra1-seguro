@@ -593,7 +593,7 @@ size = Vector2(73, 145)
 [node name="Nível1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rtybn")]
-position = Vector2(-333, 231)
+position = Vector2(907, 230)
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 position = Vector2(44, 4)
@@ -649,16 +649,16 @@ position = Vector2(437, 244)
 texture = ExtResource("10_aqtmk")
 
 [node name="Inimigo1" parent="." instance=ExtResource("11_8x3ve")]
-position = Vector2(-673, 197)
+position = Vector2(-567, 236)
 collision_layer = 2
 
-[node name="patrulha1" type="Node2D" parent="."]
+[node name="patrulha1" type="Node2D" parent="Inimigo1"]
 
-[node name="patrulha 1" type="Marker2D" parent="patrulha1"]
-position = Vector2(456, 239)
+[node name="patrulha 1" type="Marker2D" parent="Inimigo1/patrulha1"]
+position = Vector2(1023, 3)
 
-[node name="patrulha 2" type="Marker2D" parent="patrulha1"]
-position = Vector2(614, 233)
+[node name="patrulha 2" type="Marker2D" parent="Inimigo1/patrulha1"]
+position = Vector2(1181, -3)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
