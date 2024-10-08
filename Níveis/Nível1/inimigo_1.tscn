@@ -157,6 +157,7 @@ size = Vector2(34, 63.3571)
 size = Vector2(371, 78.25)
 
 [node name="Inimigo1" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_ewo05")
 projectile_scene = ExtResource("5_lq8vd")
 

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var gravity: float = 500.0
 @export var patrol_tolerance: float = 10.0
 @export var projectile_scene: PackedScene  # Referência à cena do projétil
-@export var shoot_delay: float = 0.1  # Intervalo de disparo em segundos
+@export var shoot_delay: float = 0.8  # Intervalo de disparo em segundos
 
 var patrol_points: Array = []
 var current_patrol_index: int = 0
