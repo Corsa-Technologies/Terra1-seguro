@@ -121,7 +121,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shot1",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -154,7 +154,7 @@ animations = [{
 size = Vector2(34, 63.3571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ghj"]
-size = Vector2(371, 78.25)
+size = Vector2(231, 59.5625)
 
 [node name="Inimigo1" type="CharacterBody2D"]
 collision_layer = 4
@@ -182,7 +182,8 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(1, -20.875)
+position = Vector2(0, -21)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_i4ghj")
 
 [node name="projectile" parent="." instance=ExtResource("5_lq8vd")]
