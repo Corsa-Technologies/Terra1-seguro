@@ -274,7 +274,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_snkoj"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_xv8p6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kol7k"]
@@ -903,26 +904,16 @@ position = Vector2(210, 23)
 texture = ExtResource("5_wbhe1")
 
 [node name="Inimigo1" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(1090, 109)
-collision_layer = 2
+position = Vector2(855, 239)
+collision_layer = 0
 
 [node name="patrulha1" type="Node2D" parent="Inimigo1"]
-position = Vector2(-5, -36)
 
-[node name="patrulha 1" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(-90, 36)
+[node name="Marker2D" type="Marker2D" parent="Inimigo1/patrulha1"]
+position = Vector2(113, 2)
 
-[node name="patrulha 2" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(70, 35)
+[node name="Marker2D2" type="Marker2D" parent="Inimigo1/patrulha1"]
+position = Vector2(-88, 0)
 
 [node name="Inimigo2" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(2064, 103)
-collision_layer = 2
-
-[node name="patrulha1" type="Node2D" parent="Inimigo2"]
-
-[node name="patrulha 1" type="Marker2D" parent="Inimigo2/patrulha1"]
-position = Vector2(-95, 0)
-
-[node name="patrulha 2" type="Marker2D" parent="Inimigo2/patrulha1"]
-position = Vector2(65, -1)
+position = Vector2(1083, 106)

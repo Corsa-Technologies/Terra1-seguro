@@ -20,7 +20,7 @@ func _ready():
 			if point is Marker2D:
 				patrol_points.append(point.global_position)  # Usa a posição global dos Markers2D
 	else:
-		print("Erro: Nó 'patrulha1' não encontrado no inimigo!")
+		$AnimatedSprite2D.play('idle')
 	
 	# Conectar sinais da Area2D (DetectionArea)
 	$DetectionArea.connect("body_entered", Callable(self, "_on_detection_area_body_entered"))
