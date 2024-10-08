@@ -649,7 +649,7 @@ position = Vector2(437, 244)
 texture = ExtResource("10_aqtmk")
 
 [node name="Inimigo1" parent="." instance=ExtResource("11_8x3ve")]
-position = Vector2(448, 236)
+position = Vector2(414, 237)
 collision_layer = 2
 
 [node name="patrulha1" type="Node2D" parent="Inimigo1"]
