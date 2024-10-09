@@ -868,7 +868,7 @@ pattern_0 = SubResource("TileMapPattern_8thxd")
 [node name="Nível 2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_wdg5p")]
-position = Vector2(1759, 148)
+position = Vector2(176, 241)
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 z_index = 1
@@ -915,9 +915,7 @@ position = Vector2(65, 3)
 position = Vector2(-64, 0)
 
 [node name="Inimigo3" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(1486, 155)
-
-[node name="patrulha1" type="Node2D" parent="Inimigo3"]
+position = Vector2(1478, 154)
 
 [node name="Inimigo2" parent="." instance=ExtResource("6_u5bcf")]
 position = Vector2(1072, 108)
