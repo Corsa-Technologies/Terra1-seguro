@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="3_wdg5p"]
 [ext_resource type="Texture2D" uid="uid://cnbk5xkyswc1f" path="res://Assets/objetos/Trees/7.png" id="4_aooiu"]
 [ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="5_wbhe1"]
-[ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Níveis/Nível1/inimigo_1.tscn" id="6_u5bcf"]
+[ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Assets/inimigos/inimigo1/inimigo_1.tscn" id="6_u5bcf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xv8p6"]
 texture = ExtResource("1_lr12k")

@@ -8,6 +8,7 @@ var is_attacking = false # Variável para controlar se o personagem está atacan
 @onready var coyote_timer = $CoyoteTimer as Timer
 @onready var animated_sprite = $AnimatedSprite2D # Referência ao AnimatedSprite2D
 @onready var health_label = $ControleTouch/Control/HealthText # Referência ao Label de vida
+@onready var hitboxlamina = $hitboxlamina # Referência à hitboxlamina
 @export var buffer_time: float = 0.15
 @export var coyote_time: float = 0.1
 
@@ -21,6 +22,7 @@ var buffer_timer = 0.0
 func _ready():
 	coyote_timer.wait_time = coyote_time
 	update_health_display() # Atualiza a exibição da vida no início
+	hitboxlamina.set_monitoring(false) # Desativa a hitbox no início
 
 # Função para receber dano
 func take_damage(amount: int):
@@ -114,6 +116,7 @@ func _input(event: InputEvent):
 		is_attacking = true
 		velocity.x = 0 # Para o personagem de se mover enquanto ataca
 		animated_sprite.play("ataque")
+		hitboxlamina.set_monitoring(true)  # Ativa a hitbox ao iniciar o ataque
 		# Conecta o sinal de "animation_finished" com a função que será chamada quando a animação de ataque terminar
 		animated_sprite.connect("animation_finished", Callable(self, "_on_attack_animation_finished"))
 
@@ -125,6 +128,7 @@ func _on_shoot_animation_finished():
 # Função chamada quando a animação de ataque termina
 func _on_attack_animation_finished():
 	is_attacking = false
+	hitboxlamina.set_monitoring(false)  # Desativa a hitbox ao terminar o ataque
 	animated_sprite.disconnect("animation_finished", Callable(self, "_on_attack_animation_finished"))
 
 # Função para quando o tempo do coyote timer acaba
@@ -134,3 +138,12 @@ func _on_coyote_timer_timeout() -> void:
 # Função de morte
 func die():
 	get_tree().reload_current_scene() # Recarrega a cena atual
+
+# Função de colisão
+func _on_hitboxlamina_body_entered(body: Node) -> void:
+	print("Corpo entrou na hitbox: ", body.name)
+	if body is CharacterBody2D:
+		var hurtbox = body.get_node("hurtbox")
+		if hurtbox:
+			print('Achei a hurtbox dentro do inimigo')
+			hurtbox.get_parent().take_damage(10)

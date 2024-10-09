@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var patrol_tolerance: float = 10.0
 @export var projectile_scene: PackedScene  # Referência à cena do projétil
 @export var shoot_delay: float = 1.0  # Intervalo de disparo em segundos
+@export var health: int = 100  # Adiciona uma variável de saúde ao inimigo
 
 var patrol_points: Array = []
 var current_patrol_index: int = 0
@@ -21,7 +22,7 @@ func _ready():
 				patrol_points.append(point.global_position)  # Usa a posição global dos Markers2D
 	else:
 		$AnimatedSprite2D.play('idle')
-	
+
 	# Conectar sinais da Area2D (DetectionArea)
 	$DetectionArea.connect("body_entered", Callable(self, "_on_detection_area_body_entered"))
 	$DetectionArea.connect("body_exited", Callable(self, "_on_detection_area_body_exited"))
@@ -103,3 +104,13 @@ func shoot_projectile():
 	
 	# Adiciona o projétil à cena
 	get_parent().add_child(projectile)
+
+# Função para receber dano
+func take_damage(amount: int):
+	health -= amount  # Subtrai o dano da saúde do inimigo
+	if health <= 0:
+		die()  # Chama a função de morte se a saúde for menor ou igual a 0
+
+# Função de morte
+func die():
+	queue_free()  # Remove o inimigo da cena

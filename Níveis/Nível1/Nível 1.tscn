@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="8_eckob"]
 [ext_resource type="Texture2D" uid="uid://caaep5o1ebj5r" path="res://Assets/objetos/Trees/1.png" id="9_rfnlw"]
 [ext_resource type="Texture2D" uid="uid://c3p55bdivoxj6" path="res://Assets/objetos/Trees/6.png" id="10_aqtmk"]
-[ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Níveis/Nível1/inimigo_1.tscn" id="11_8x3ve"]
+[ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Assets/inimigos/inimigo1/inimigo_1.tscn" id="11_8x3ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5wy2"]
 texture = ExtResource("2_pakg0")
@@ -594,7 +594,7 @@ size = Vector2(73, 145)
 [node name="Nível1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rtybn")]
-position = Vector2(666, 229)
+position = Vector2(749, 235)
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 position = Vector2(44, 4)
