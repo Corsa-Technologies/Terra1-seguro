@@ -174,7 +174,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeks6"]
-size = Vector2(58.25, 18.75)
+size = Vector2(58, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n7is"]
 size = Vector2(38, 87)
@@ -191,17 +191,19 @@ position = Vector2(8, 10)
 scale = Vector2(0.5, 0.485)
 sprite_frames = SubResource("SpriteFrames_g48ma")
 animation = &"ataque"
+frame = 3
+frame_progress = 1.0
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="hitboxlamina" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 6
+collision_mask = 6
 priority = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxlamina"]
-position = Vector2(-53, 1)
+position = Vector2(10, -5.5)
 shape = SubResource("RectangleShape2D_jeks6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -215,6 +217,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="ControleTouch" parent="." instance=ExtResource("2_21c6s")]
+visible = false
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="body_entered" from="hitboxlamina" to="." method="_on_hitboxlamina_body_entered"]

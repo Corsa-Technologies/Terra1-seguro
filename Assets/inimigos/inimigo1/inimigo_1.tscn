@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://me3ihp8vfgwg" path="res://Assets/inimigos/inimigo1/Walk.png" id="5_7mcr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcaww"]
-size = Vector2(61, 83)
+size = Vector2(27, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1idlb"]
 atlas = ExtResource("3_atsb4")
@@ -157,10 +157,10 @@ animations = [{
 size = Vector2(34, 63.3571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ghj"]
-size = Vector2(231, 59.5625)
+size = Vector2(231, 37.2813)
 
 [node name="Inimigo1" type="CharacterBody2D"]
-collision_layer = 4
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_03eev")
 projectile_scene = ExtResource("2_e7062")
@@ -170,7 +170,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(-0.5, 5.5)
+position = Vector2(-1.5, 5.5)
 shape = SubResource("RectangleShape2D_vcaww")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -193,7 +193,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, -21)
+position = Vector2(0, -43.2813)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_i4ghj")
 

@@ -597,7 +597,8 @@ texture = ExtResource("2_eiaww")
 16:17/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cwj1j"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_kol7k")
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8thxd"]
@@ -867,8 +868,7 @@ pattern_0 = SubResource("TileMapPattern_8thxd")
 [node name="Nível 2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_wdg5p")]
-position = Vector2(218, 220)
-metadata/_edit_lock_ = true
+position = Vector2(1759, 148)
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 z_index = 1
@@ -904,16 +904,20 @@ position = Vector2(210, 23)
 texture = ExtResource("5_wbhe1")
 
 [node name="Inimigo1" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(855, 239)
-collision_layer = 0
+position = Vector2(570, 243)
 
 [node name="patrulha1" type="Node2D" parent="Inimigo1"]
 
 [node name="Marker2D" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(113, 2)
+position = Vector2(65, 3)
 
 [node name="Marker2D2" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(-88, 0)
+position = Vector2(-64, 0)
+
+[node name="Inimigo3" parent="." instance=ExtResource("6_u5bcf")]
+position = Vector2(1486, 155)
+
+[node name="patrulha1" type="Node2D" parent="Inimigo3"]
 
 [node name="Inimigo2" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(1083, 106)
+position = Vector2(1072, 108)

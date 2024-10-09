@@ -95,7 +95,14 @@ func _physics_process(delta):
 		# Se o personagem estiver no ar, toca a animação de pulo.
 		if not is_on_floor():
 			animated_sprite.play("jump")
-	
+
+	# Ajuste a posição da hitbox com base na direção do player
+	if is_attacking:
+		if animated_sprite.flip_h:  # Se o sprite estiver virado para a esquerda
+			hitboxlamina.position.x = -50  # Ajuste a posição para a esquerda (valor negativo)
+		else:
+			hitboxlamina.position.x = 50  # Ajuste a posição para a direita (valor positivo)
+
 	move_and_slide()
 
 # Função que lida com inputs de tiro e ataque
@@ -140,10 +147,10 @@ func die():
 	get_tree().reload_current_scene() # Recarrega a cena atual
 
 # Função de colisão
-func _on_hitboxlamina_body_entered(body: Node) -> void:
+func _on_hitboxlamina_body_entered(body: CharacterBody2D) -> void:
 	print("Corpo entrou na hitbox: ", body.name)
 	if body is CharacterBody2D:
 		var hurtbox = body.get_node("hurtbox")
 		if hurtbox:
 			print('Achei a hurtbox dentro do inimigo')
-			hurtbox.get_parent().take_damage(10)
+			hurtbox.get_parent().take_damage(50)
