@@ -99,9 +99,9 @@ func _physics_process(delta):
 	# Ajuste a posição da hitbox com base na direção do player
 	if is_attacking:
 		if animated_sprite.flip_h:  # Se o sprite estiver virado para a esquerda
-			hitboxlamina.position.x = -50  # Ajuste a posição para a esquerda (valor negativo)
+			hitboxlamina.position.x = -8  # Ajuste a posição para a esquerda (valor negativo)
 		else:
-			hitboxlamina.position.x = 50  # Ajuste a posição para a direita (valor positivo)
+			hitboxlamina.position.x = 10  # Ajuste a posição para a direita (valor positivo)
 
 	move_and_slide()
 
