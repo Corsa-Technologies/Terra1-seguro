@@ -48,6 +48,7 @@ size = Vector2(18, 8)
 [node name="projectile" type="CharacterBody2D"]
 position = Vector2(3, 2)
 collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_lb75j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

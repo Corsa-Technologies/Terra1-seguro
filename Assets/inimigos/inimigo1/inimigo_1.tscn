@@ -167,7 +167,6 @@ projectile_scene = ExtResource("2_e7062")
 
 [node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(-1.5, 5.5)
@@ -177,11 +176,10 @@ shape = SubResource("RectangleShape2D_vcaww")
 light_mask = 2
 visibility_layer = 2
 texture_filter = 1
-position = Vector2(16, -31)
+position = Vector2(8, -33)
 scale = Vector2(1.4, 1.359)
 sprite_frames = SubResource("SpriteFrames_yla2x")
-animation = &"shot1"
-frame_progress = 0.859789
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5.96046e-08, 7.35)
@@ -199,7 +197,6 @@ shape = SubResource("RectangleShape2D_i4ghj")
 
 [node name="projectile" parent="." instance=ExtResource("2_e7062")]
 position = Vector2(29, 529)
-collision_mask = 0
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

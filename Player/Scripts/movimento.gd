@@ -1,4 +1,4 @@
-extends CharacterBody2D 
+extends CharacterBody2D
 
 var SPEED = 300.0
 const JUMP_VELOCITY = -450.0
@@ -11,6 +11,8 @@ var is_attacking = false # Variável para controlar se o personagem está atacan
 @onready var hitboxlamina = $hitboxlamina # Referência à hitboxlamina
 @export var buffer_time: float = 0.15
 @export var coyote_time: float = 0.1
+
+@export var projectile_scene: PackedScene # A cena do projétil que será instanciada
 
 # Variáveis para a vida
 var max_health: int = 100
@@ -115,10 +117,11 @@ func _input(event: InputEvent):
 		is_shooting = true
 		velocity.x = 0 # Para o personagem de se mover enquanto atira
 		animated_sprite.play("tiro")
+		shoot_projectile() # Dispara o projétil
 		# Conecta o sinal de "animation_finished" com a função que será chamada quando a animação terminar
 		animated_sprite.connect("animation_finished", Callable(self, "_on_shoot_animation_finished"))
 
-	# Verifica se o botão "ataque" foi pressionado e o personagem não está atirando ou atacando
+	# Verifica se o botão "ataque" foi pressionado e o personagem não está atacando ou atirando
 	if event.is_action_pressed("ataque") and not is_attacking and not is_shooting:
 		is_attacking = true
 		velocity.x = 0 # Para o personagem de se mover enquanto ataca
@@ -138,14 +141,32 @@ func _on_attack_animation_finished():
 	hitboxlamina.set_monitoring(false)  # Desativa a hitbox ao terminar o ataque
 	animated_sprite.disconnect("animation_finished", Callable(self, "_on_attack_animation_finished"))
 
-# Função para quando o tempo do coyote timer acaba
-func _on_coyote_timer_timeout() -> void:
-	canjump = false
+# Função para disparar o projétil
+func shoot_projectile():
+	# Verifica se a cena do projétil foi atribuída
+	if projectile_scene == null:
+		return
+	
+	# Instancia a cena do projétil
+	var projectile = projectile_scene.instantiate() as CharacterBody2D
+	
+	# Define a posição inicial do projétil um pouco à frente do jogador
+	if animated_sprite.flip_h:
+		projectile.global_position = global_position + Vector2(-10, 0)  # Dispara para a esquerda
+		projectile.direction = Vector2.LEFT  # Define a direção para a esquerda
+	else:
+		projectile.global_position = global_position + Vector2(10, 0)  # Dispara para a direita
+		projectile.direction = Vector2.RIGHT  # Define a direção para a direita
+	
+	# Adiciona o projétil à cena
+	get_parent().add_child(projectile)
 
 # Função de morte
 func die():
 	get_tree().reload_current_scene() # Recarrega a cena atual
-
+# Função para quando o tempo do coyote timer acaba
+func _on_coyote_timer_timeout() -> void:
+	canjump = false
 # Função de colisão
 func _on_hitboxlamina_body_entered(body: CharacterBody2D) -> void:
 	print("Corpo entrou na hitbox: ", body.name)
