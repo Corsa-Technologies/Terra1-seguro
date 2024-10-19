@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bpaack3q178le"]
+[gd_scene load_steps=15 format=4 uid="uid://bpaack3q178le"]
 
 [ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="1_lr12k"]
 [ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="2_eiaww"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnbk5xkyswc1f" path="res://Assets/objetos/Trees/7.png" id="4_aooiu"]
 [ext_resource type="Texture2D" uid="uid://dcgkpb2agtuwp" path="res://Assets/objetos/Stones/6.png" id="5_wbhe1"]
 [ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Assets/inimigos/inimigo1/inimigo_1.tscn" id="6_u5bcf"]
+[ext_resource type="PackedScene" uid="uid://bicaebj3mu4vm" path="res://Assets/objetos/seringa.tscn" id="7_8b223"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xv8p6"]
 texture = ExtResource("1_lr12k")
@@ -919,3 +920,9 @@ position = Vector2(1478, 154)
 
 [node name="Inimigo2" parent="." instance=ExtResource("6_u5bcf")]
 position = Vector2(1072, 108)
+
+[node name="Seringa" parent="." instance=ExtResource("7_8b223")]
+position = Vector2(268, 259)
+
+[node name="Seringa2" parent="." instance=ExtResource("7_8b223")]
+position = Vector2(840, 261)

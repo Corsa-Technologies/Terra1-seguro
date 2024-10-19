@@ -6,16 +6,22 @@ var canjump := true
 var is_shooting = false # Variável para controlar se o personagem está atirando
 var is_attacking = false # Variável para controlar se o personagem está atacando
 var is_healing = false # Variável para controlar se o personagem está curando
+var heal_count: int = 5 # Número de curas disponíveis
 
 @onready var coyote_timer = $CoyoteTimer as Timer
 @onready var animated_sprite = $AnimatedSprite2D # Referência ao AnimatedSprite2D
 @onready var health_label = $ControleTouch/Control/HealthText # Referência ao Label de vida
 @onready var hitboxlamina = $hitboxlamina # Referência à hitboxlamina
 @onready var heal_timer = Timer.new() # Temporizador para controlar a duração da animação de cura
+@onready var heal_count_label = $ControleTouch/Control/HealCountText # Referência ao Label de cura
 
 @export var buffer_time: float = 0.15
 @export var coyote_time: float = 0.1
 @export var projectile_scene: PackedScene # A cena do projétil que será instanciada
+
+func update_heal_display():
+	if heal_count_label: # Verifica se a referência não é null
+		heal_count_label.text = " " + str(heal_count)
 
 # Variáveis para a vida
 var max_health: int = 100
@@ -27,11 +33,13 @@ var buffer_timer = 0.0
 func _ready():
 	coyote_timer.wait_time = coyote_time
 	update_health_display() # Atualiza a exibição da vida no início
+	update_heal_display() # Atualiza a exibição da contagem de cura
 	hitboxlamina.set_monitoring(false) # Desativa a hitbox no início
 	add_child(heal_timer)
 	heal_timer.wait_time = 1.0
 	heal_timer.one_shot = true
 	heal_timer.connect("timeout", Callable(self, "_on_heal_animation_finished"))
+
 
 # Função para receber dano
 func take_damage(amount: int):
@@ -47,12 +55,15 @@ func update_health_display():
 
 # Função de cura
 func heal():
-	if not is_healing:
+	if not is_healing and heal_count > 0: # Verifica se não está curando e se ainda há curas disponíveis
 		current_health = max_health
 		update_health_display()
+		heal_count -= 1 # Diminui a contagem de cura
+		update_heal_display() # Atualiza a exibição da contagem de cura
 		is_healing = true
 		animated_sprite.play("cura") # Toca a animação de cura
 		heal_timer.start() # Começa o temporizador para finalizar a animação
+
 
 # Função chamada quando a animação de cura termina
 func _on_heal_animation_finished():
