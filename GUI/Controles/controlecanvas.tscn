@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://6r0hwy3ijx5f"]
+[gd_scene load_steps=18 format=3 uid="uid://6r0hwy3ijx5f"]
 
 [ext_resource type="Script" path="res://GUI/Controles/controletoque.gd" id="1_6ks27"]
 [ext_resource type="Texture2D" uid="uid://cuea70ofd5epd" path="res://GUI/Controles/transparentLight08.png" id="2_tnwsv"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bv5mmm0gm16r" path="res://GUI/Controles/presstiro.png" id="9_jfr4v"]
 [ext_resource type="Texture2D" uid="uid://dcgi67gumry88" path="res://GUI/Controles/ataque.png" id="10_np2q5"]
 [ext_resource type="Texture2D" uid="uid://45rd7xy0kdur" path="res://GUI/Controles/pressataque.png" id="11_adolr"]
+[ext_resource type="Texture2D" uid="uid://dq3ulo5ver1jo" path="res://GUI/Controles/transparentLight19.png" id="14_gwe5s"]
 [ext_resource type="Texture2D" uid="uid://b3upyetnj2nbw" path="res://GUI/Controles/barra de vida.png" id="14_krhtq"]
+[ext_resource type="Texture2D" uid="uid://cei7a6cmd3tfx" path="res://GUI/Controles/transparentDark19.png" id="15_kpvma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm73x"]
 
@@ -80,6 +82,13 @@ scale = Vector2(4, 3)
 shape = SubResource("RectangleShape2D_cm73x")
 action = "cura"
 
+[node name="Dash" type="TouchScreenButton" parent="Control"]
+position = Vector2(1330, 425)
+scale = Vector2(1.5, 1.35417)
+texture_normal = ExtResource("14_gwe5s")
+texture_pressed = ExtResource("15_kpvma")
+action = "dash"
+
 [node name="HealthText" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 48.0
@@ -122,3 +131,4 @@ metadata/_edit_group_ = true
 [connection signal="pressed" from="Control/Ataque" to="." method="_on_ataque_pressed"]
 [connection signal="released" from="Control/Ataque" to="." method="_on_ataque_released"]
 [connection signal="pressed" from="Control/Cura" to="." method="_on_cura_pressed"]
+[connection signal="pressed" from="Control/Dash" to="." method="_on_dash_pressed"]

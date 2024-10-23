@@ -47,3 +47,7 @@ func _on_ataque_pressed():
 
 func _on_ataque_released():
 	ataque.modulate.a = 1.0
+
+
+func _on_dash_pressed() -> void:
+	print('apertado')
