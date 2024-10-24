@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://c2b5a8wa3xoja"]
+[gd_scene load_steps=32 format=3 uid="uid://c2b5a8wa3xoja"]
 
 [ext_resource type="Script" path="res://Player/Scripts/movimento.gd" id="1_kiena"]
 [ext_resource type="Texture2D" uid="uid://3l7d1xkbaat7" path="res://Player/Aya Completo.png" id="2_2ortg"]
 [ext_resource type="PackedScene" uid="uid://6r0hwy3ijx5f" path="res://GUI/Controles/controlecanvas.tscn" id="2_21c6s"]
+[ext_resource type="PackedScene" uid="uid://ixhsleocjpvi" path="res://Player/projetilaya.tscn" id="2_w2x0k"]
 [ext_resource type="Texture2D" uid="uid://bfrp2uancgku5" path="res://Player/sprites2.png" id="3_rnmfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hxdpw"]
@@ -216,12 +217,13 @@ visibility_layer = 2
 z_index = 4
 position = Vector2(159, 114)
 script = ExtResource("1_kiena")
+projectile_scene = ExtResource("2_w2x0k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 8)
 scale = Vector2(0.5, 0.485)
 sprite_frames = SubResource("SpriteFrames_g48ma")
-animation = &"cura"
+animation = &"dash"
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15

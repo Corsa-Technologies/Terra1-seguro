@@ -7,9 +7,11 @@ var is_shooting = false # Variável para controlar se o personagem está atirand
 var is_attacking = false # Variável para controlar se o personagem está atacando
 var is_healing = false # Variável para controlar se o personagem está curando
 var heal_count: int = 5 # Número de curas disponíveis
-var is_dashing: bool = false
-var dash_timer: float = 0.0
-var current_speed: float = SPEED
+var speed_dash = 600
+var dash_time = 0.2 # tempo do dash em segundos
+var is_dashing = false
+var dash_cooldown_time = 1.0  # Cooldown entre dashes em segundos
+var can_dash = true  # Controla se o jogador pode dash
 
 @onready var coyote_timer = $CoyoteTimer as Timer
 @onready var animated_sprite = $AnimatedSprite2D # Referência ao AnimatedSprite2D
@@ -21,8 +23,6 @@ var current_speed: float = SPEED
 @export var buffer_time: float = 0.15
 @export var coyote_time: float = 0.1
 @export var projectile_scene: PackedScene # A cena do projétil que será instanciada
-@export var dash_speed_multiplier: float = 2.0
-@export var dash_duration: float = 0.2
 
 func update_heal_display():
 	if heal_count_label: # Verifica se a referência não é null
@@ -44,6 +44,7 @@ func _ready():
 	heal_timer.wait_time = 1.0
 	heal_timer.one_shot = true
 	heal_timer.connect("timeout", Callable(self, "_on_heal_animation_finished"))
+
 
 # Função para receber dano
 func take_damage(amount: int):
@@ -68,6 +69,7 @@ func heal():
 		animated_sprite.play("cura") # Toca a animação de cura
 		heal_timer.start() # Começa o temporizador para finalizar a animação
 
+
 # Função chamada quando a animação de cura termina
 func _on_heal_animation_finished():
 	is_healing = false
@@ -78,19 +80,12 @@ func pular():
 	velocity.y = JUMP_VELOCITY
 
 func _physics_process(delta):
-	# Adiciona o dash
-	if Input.is_action_just_pressed("dash") and not is_dashing:
-		start_dash()
-
-	if is_dashing:
-		animated_sprite.play('dash')
-		dash_timer -= delta
-		if dash_timer <= 0.0:
-			end_dash()
-
 	# Adiciona a gravidade
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+	if Input.is_action_just_pressed("dash") and not is_dashing:
+		dash()
 
 	# Verifica se o botão de cura foi apertado
 	if Input.is_action_just_pressed("cura"):
@@ -132,12 +127,12 @@ func _physics_process(delta):
 		if not is_shooting and not is_attacking:
 			var direction := Input.get_axis("ui_left", "ui_right")
 			if direction != 0:
-				velocity.x = direction * current_speed  # Usa current_speed para considerar o dash
+				velocity.x = direction * SPEED
 				if is_on_floor():
 					animated_sprite.play("run") # Troca para animação de corrida se estiver no chão e se movendo
 				animated_sprite.flip_h = direction < 0 # Inverte o sprite se estiver movendo para a esquerda
 			else:
-				velocity.x = move_toward(velocity.x, 0, current_speed)  # Usa current_speed para parar o dash
+				velocity.x = move_toward(velocity.x, 0, SPEED)
 				if is_on_floor():
 					animated_sprite.play("idle") # Troca para animação de idle se estiver parado no chão e não curando
 
@@ -153,18 +148,21 @@ func _physics_process(delta):
 				hitboxlamina.position.x = 10  # Ajuste a posição para a direita (valor positivo)
 
 	move_and_slide()
-	
-# Função que inicia o dash
-func start_dash() -> void:
-	is_dashing = true
-	dash_timer = dash_duration
-	current_speed = SPEED * dash_speed_multiplier
 
-# Função que termina o dash
-func end_dash() -> void:
+
+
+func dash():
+	is_dashing = true
+	var original_speed = SPEED  # Guarda a velocidade original
+	SPEED = speed_dash  # Aumenta a velocidade para o dash
+
+	# Usa await para esperar o tempo do dash
+	await get_tree().create_timer(dash_time).timeout
+	SPEED = original_speed  # Retorna à velocidade original após o dash
 	is_dashing = false
-	current_speed = SPEED
-	
+
+
+
 # Função que lida com inputs de tiro e ataque
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_down") and is_on_floor():
@@ -198,18 +196,36 @@ func _on_attack_animation_finished():
 	animated_sprite.disconnect("animation_finished", Callable(self, "_on_attack_animation_finished"))
 
 # Função para disparar o projétil
-# Função para disparar o projétil
 func shoot_projectile():
-	# Verifica se a cena do projétil foi definida
-	if projectile_scene:
-		var projectile = projectile_scene.instantiate()
-		get_parent().add_child(projectile)
-		projectile.global_position = global_position
+	# Verifica se a cena do projétil foi atribuída
+	if projectile_scene == null:
+		return
+	
+	# Instancia a cena do projétil
+	var projectile = projectile_scene.instantiate() as CharacterBody2D
+	
+	# Define a posição inicial do projétil um pouco à frente do jogador
+	if animated_sprite.flip_h:
+		projectile.global_position = global_position + Vector2(-10, 0)  # Dispara para a esquerda
+		projectile.direction = Vector2.LEFT  # Define a direção para a esquerda
+	else:
+		projectile.global_position = global_position + Vector2(10, 0)  # Dispara para a direita
+		projectile.direction = Vector2.RIGHT  # Define a direção para a direita
+	
+	# Adiciona o projétil à cena
+	get_parent().add_child(projectile)
 
-		# Define a direção do projétil com base na direção do player
-		if animated_sprite.flip_h:
-			projectile.direction = Vector2.LEFT
-		else:
-			projectile.direction = Vector2.RIGHT
+# Função de morte
 func die():
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene() # Recarrega a cena atual
+
+# Função para quando o tempo do coyote timer acaba
+func _on_coyote_timer_timeout() -> void:
+	canjump = false
+
+# Função de colisão
+func _on_hitboxlamina_body_entered(body: CharacterBody2D) -> void:
+	if body is CharacterBody2D:
+		var hurtbox = body.get_node("hurtbox")
+		if hurtbox:
+			hurtbox.get_parent().take_damage(50)
