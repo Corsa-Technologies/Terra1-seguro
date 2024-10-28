@@ -25,8 +25,8 @@ var can_dash = true  # Controla se o jogador pode dash
 @export var projectile_scene: PackedScene # A cena do projétil que será instanciada
 
 func update_heal_display():
-	if heal_count_label: # Verifica se a referência não é null
-		heal_count_label.text = " " + str(heal_count)
+	if heal_count_label:  # Verifica se a referência não é null
+		heal_count_label.text = " " + str(PlayerData.heals_available)  # Mostra as curas restantes
 
 # Variáveis para a vida
 var max_health: int = 100
@@ -37,6 +37,7 @@ var buffer_timer = 0.0
 
 func _ready():
 	coyote_timer.wait_time = coyote_time
+	current_health = PlayerData.player_health  # Pega a vida do singleton
 	update_health_display() # Atualiza a exibição da vida no início
 	update_heal_display() # Atualiza a exibição da contagem de cura
 	hitboxlamina.set_monitoring(false) # Desativa a hitbox no início
@@ -46,13 +47,15 @@ func _ready():
 	heal_timer.connect("timeout", Callable(self, "_on_heal_animation_finished"))
 
 
+
 # Função para receber dano
 func take_damage(amount: int):
 	current_health -= amount
 	current_health = clamp(current_health, 0, max_health)
+	PlayerData.player_health = current_health  # Salva a vida atual no singleton
 	update_health_display()
 	if current_health <= 0:
-		die() # Chama a função de morte
+		die()  # Chama a função de morte
 
 # Atualizar a exibição de vida no LabelText
 func update_health_display():
@@ -60,14 +63,14 @@ func update_health_display():
 
 # Função de cura
 func heal():
-	if not is_healing and heal_count > 0: # Verifica se não está curando e se ainda há curas disponíveis
+	if not is_healing and PlayerData.heals_available > 0:  # Verifica se não está curando e se há curas disponíveis
 		current_health = max_health
 		update_health_display()
-		heal_count -= 1 # Diminui a contagem de cura
-		update_heal_display() # Atualiza a exibição da contagem de cura
+		PlayerData.heals_available -= 1  # Reduz a contagem de curas no singleton
+		update_heal_display()  # Atualiza a exibição da contagem de cura
 		is_healing = true
-		animated_sprite.play("cura") # Toca a animação de cura
-		heal_timer.start() # Começa o temporizador para finalizar a animação
+		animated_sprite.play("cura")  # Toca a animação de cura
+		heal_timer.start()  # Começa o temporizador para finalizar a animação
 
 
 # Função chamada quando a animação de cura termina

@@ -22,6 +22,12 @@
 [node name="ControleTouch" type="CanvasLayer"]
 script = ExtResource("1_6ks27")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 2.0
+offset_top = 78.0
+offset_right = 42.0
+offset_bottom = 118.0
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 2
@@ -77,8 +83,8 @@ texture_pressed = ExtResource("11_adolr")
 action = "ataque"
 
 [node name="Cura" type="TouchScreenButton" parent="Control"]
-position = Vector2(58, 34)
-scale = Vector2(4, 3)
+position = Vector2(100, -30)
+scale = Vector2(15, 10)
 shape = SubResource("RectangleShape2D_cm73x")
 action = "cura"
 
