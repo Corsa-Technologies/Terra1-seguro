@@ -915,16 +915,10 @@ position = Vector2(570, 243)
 [node name="patrulha1" type="Node2D" parent="Inimigo1"]
 
 [node name="Marker2D" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(65, 3)
+position = Vector2(66, 13)
 
 [node name="Marker2D2" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(-64, 0)
-
-[node name="Inimigo3" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(1478, 154)
-
-[node name="Inimigo2" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(1072, 108)
+position = Vector2(-67, 9)
 
 [node name="Seringa" parent="." instance=ExtResource("7_8b223")]
 position = Vector2(268, 259)

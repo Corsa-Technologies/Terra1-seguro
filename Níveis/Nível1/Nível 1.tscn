@@ -654,10 +654,10 @@ position = Vector2(414, 237)
 [node name="patrulha1" type="Node2D" parent="Inimigo1"]
 
 [node name="patrulha 1" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(-62, 2)
+position = Vector2(-82, 16)
 
 [node name="patrulha 2" type="Marker2D" parent="Inimigo1/patrulha1"]
-position = Vector2(103, -2)
+position = Vector2(96, 13)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
