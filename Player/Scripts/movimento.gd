@@ -220,7 +220,10 @@ func shoot_projectile():
 
 # Função de morte
 func die():
-	get_tree().reload_current_scene() # Recarrega a cena atual
+	current_health = 100  # Restaura a vida para 100 ao morrer
+	PlayerData.player_health = current_health  # Atualiza o valor no singleton
+	update_health_display()  # Atualiza a exibição da vida
+	get_tree().reload_current_scene()
 
 # Função para quando o tempo do coyote timer acaba
 func _on_coyote_timer_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bpaack3q178le"]
+[gd_scene load_steps=18 format=4 uid="uid://bpaack3q178le"]
 
 [ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="1_lr12k"]
 [ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="2_eiaww"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bicaebj3mu4vm" path="res://Assets/objetos/seringa.tscn" id="7_8b223"]
 [ext_resource type="Script" path="res://Níveis/Nível2/portanivel2-3.gd" id="8_apuwn"]
 [ext_resource type="Texture2D" uid="uid://ctvqje3xljlob" path="res://Assets/objetos/pixil-frame-0.png" id="8_qh0np"]
-[ext_resource type="Script" path="res://Níveis/Nível2/dialogo1.gd" id="10_xr66b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlgak"]
 texture = ExtResource("1_lr12k")
@@ -872,9 +871,6 @@ pattern_0 = SubResource("TileMapPattern_8thxd")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgivf"]
 size = Vector2(73, 145)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbpvp"]
-size = Vector2(18, 86)
-
 [node name="Nível 2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_wdg5p")]
@@ -949,13 +945,5 @@ position = Vector2(16.25, -13)
 scale = Vector2(1.535, 1.48)
 texture = ExtResource("8_qh0np")
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("10_xr66b")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(224, 228)
-shape = SubResource("RectangleShape2D_fbpvp")
-
 [connection signal="body_entered" from="porta" to="porta" method="_on_body_entered"]
 [connection signal="body_exited" from="porta" to="porta" method="_on_body_exited"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
