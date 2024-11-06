@@ -7,6 +7,35 @@ extends CanvasLayer
 @onready var tiro = $Control/Tiro
 @onready var ataque = $Control/Ataque
 @onready var health_text = $Control/HealthText
+@onready var dashcontrole =$Control/Dash
+
+func _ready():
+	# Conecta os sinais do Dialogic
+	Dialogic.timeline_started.connect(_on_timeline_started)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+
+
+
+func _on_timeline_started():
+	descer.visible = false
+	esquerda.visible = false
+	direita.visible = false
+	pulo.visible = false
+	tiro.visible = false
+	ataque.visible = false
+	dashcontrole.visible = false
+
+
+func _on_timeline_ended():
+	# Mostra novamente os nodes de controle após o diálogo
+	descer.visible = true
+	esquerda.visible = true
+	direita.visible = true
+	pulo.visible = true
+	tiro.visible = true
+	ataque.visible = true
+	dashcontrole.visible = true
+
 
 # Atualiza o texto da vida
 func update_health_text(current_health: int, max_health: int) -> void:

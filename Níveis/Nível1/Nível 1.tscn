@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cl6od350ivx3a"]
+[gd_scene load_steps=18 format=4 uid="uid://cl6od350ivx3a"]
 
 [ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="1_rtybn"]
 [ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="2_pakg0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://caaep5o1ebj5r" path="res://Assets/objetos/Trees/1.png" id="9_rfnlw"]
 [ext_resource type="Texture2D" uid="uid://c3p55bdivoxj6" path="res://Assets/objetos/Trees/6.png" id="10_aqtmk"]
 [ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Assets/inimigos/inimigo1/inimigo_1.tscn" id="11_8x3ve"]
+[ext_resource type="Script" path="res://Níveis/Nível1/dialogonivel_1.gd" id="12_1sxg4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5wy2"]
 texture = ExtResource("2_pakg0")
@@ -591,10 +592,12 @@ sources/1 = SubResource("TileSetAtlasSource_uh0h8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wie55"]
 size = Vector2(73, 145)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3aug"]
+
 [node name="Nível1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rtybn")]
-position = Vector2(749, 235)
+position = Vector2(-649, 234)
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 position = Vector2(44, 4)
@@ -659,5 +662,13 @@ position = Vector2(-82, 16)
 [node name="patrulha 2" type="Marker2D" parent="Inimigo1/patrulha1"]
 position = Vector2(96, 13)
 
+[node name="dialogonivel1" type="Area2D" parent="."]
+position = Vector2(-153.539, 230)
+script = ExtResource("12_1sxg4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogonivel1"]
+shape = SubResource("RectangleShape2D_e3aug")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="dialogonivel1" to="dialogonivel1" method="_on_body_entered"]

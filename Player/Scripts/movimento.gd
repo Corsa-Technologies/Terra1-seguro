@@ -19,10 +19,20 @@ var can_dash = true  # Controla se o jogador pode dash
 @onready var hitboxlamina = $hitboxlamina # Referência à hitboxlamina
 @onready var heal_timer = Timer.new() # Temporizador para controlar a duração da animação de cura
 @onready var heal_count_label = $ControleTouch/Control/HealCountText # Referência ao Label de cura
-
 @export var buffer_time: float = 0.15
 @export var coyote_time: float = 0.1
 @export var projectile_scene: PackedScene # A cena do projétil que será instanciada
+
+
+#controles pra esconder
+@onready var descer=$Control/Descer
+@onready var esquerda=$Control/Esquerda
+@onready var direita=$Control/Direita
+@onready var pulo=$Control/Pulo
+@onready var tiro=$Control/Tiro
+@onready var ataque=$Control/Ataque
+@onready var cura=$Control/Cura
+@onready var dashcontrole=$Control/Dash
 
 func update_heal_display():
 	if heal_count_label:  # Verifica se a referência não é null
@@ -45,8 +55,6 @@ func _ready():
 	heal_timer.wait_time = 1.0
 	heal_timer.one_shot = true
 	heal_timer.connect("timeout", Callable(self, "_on_heal_animation_finished"))
-
-
 
 # Função para receber dano
 func take_damage(amount: int):
@@ -234,4 +242,4 @@ func _on_hitboxlamina_body_entered(body: CharacterBody2D) -> void:
 	if body is CharacterBody2D:
 		var hurtbox = body.get_node("hurtbox")
 		if hurtbox:
-			hurtbox.get_parent().take_damage(50)
+			hurtbox.get_parent().take_damage(200)
