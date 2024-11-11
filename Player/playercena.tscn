@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c2b5a8wa3xoja"]
+[gd_scene load_steps=31 format=3 uid="uid://c2b5a8wa3xoja"]
 
 [ext_resource type="Script" path="res://Player/Scripts/movimento.gd" id="1_kiena"]
 [ext_resource type="Texture2D" uid="uid://3l7d1xkbaat7" path="res://Player/Aya Completo.png" id="2_2ortg"]
@@ -25,10 +25,6 @@ region = Rect2(441, 600, 134, 200)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d34a4"]
 atlas = ExtResource("3_rnmfg")
 region = Rect2(150, 1000, 150, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sf70b"]
-atlas = ExtResource("3_rnmfg")
-region = Rect2(150, 400, 150, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7o50"]
 atlas = ExtResource("3_rnmfg")
@@ -126,9 +122,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sf70b")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s7o50")
 }],

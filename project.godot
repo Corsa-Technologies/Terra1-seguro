@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 transicaotela="*res://Níveis/transiçãotela.tscn"
 PlayerData="*res://ScriptsGerais/PlayerData.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+GlobalSignals="*res://ScriptsGerais/GlobalSignals.gd"
 
 [dialogic]
 

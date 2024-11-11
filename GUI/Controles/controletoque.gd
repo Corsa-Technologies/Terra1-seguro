@@ -10,11 +10,11 @@ extends CanvasLayer
 @onready var dashcontrole =$Control/Dash
 
 func _ready():
-	# Conecta os sinais do Dialogic
+	# Conecta os sinais do Dialogic e o sinal global das notas
 	Dialogic.timeline_started.connect(_on_timeline_started)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
-
-
+	GlobalSignals.connect("nota_aberta", Callable(self, "_on_nota_aberta"))
+	GlobalSignals.connect("nota_fechada", Callable(self, "_on_nota_fechada"))
 
 func _on_timeline_started():
 	descer.visible = false
@@ -36,7 +36,25 @@ func _on_timeline_ended():
 	ataque.visible = true
 	dashcontrole.visible = true
 
-
+func _on_nota_aberta():
+	descer.visible = false
+	esquerda.visible = false
+	direita.visible = false
+	pulo.visible = false
+	tiro.visible = false
+	ataque.visible = false
+	dashcontrole.visible = false
+	
+func _on_nota_fechada():
+	descer.visible = true
+	esquerda.visible = true
+	direita.visible = true
+	pulo.visible = true
+	tiro.visible = true
+	ataque.visible = true
+	dashcontrole.visible = true
+	
+	
 # Atualiza o texto da vida
 func update_health_text(current_health: int, max_health: int) -> void:
 	health_text.text = "Vida: " + str(current_health) + " / " + str(max_health)
