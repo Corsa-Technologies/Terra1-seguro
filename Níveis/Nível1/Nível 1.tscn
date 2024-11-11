@@ -670,7 +670,7 @@ script = ExtResource("12_1sxg4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogonivel1"]
 shape = SubResource("RectangleShape2D_e3aug")
 
-[node name="Note" parent="." instance=ExtResource("13_jqi78")]
+[node name="Note1" parent="." instance=ExtResource("13_jqi78")]
 position = Vector2(-296.539, 225)
 
 [connection signal="body_entered" from="porta" to="porta" method="_on_body_entered"]
