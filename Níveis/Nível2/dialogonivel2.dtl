@@ -1,0 +1,4 @@
+join Lucia (ouvindo) leftmost
+Lucia (falando): yay
+join Lucia rightmost [animation="Slide In Down"]
+Lucia (falando): qualquer outra coisa

@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=4 uid="uid://bpaack3q178le"]
+[gd_scene load_steps=20 format=4 uid="uid://bpaack3q178le"]
 
+[ext_resource type="Script" path="res://Níveis/Nível2/notanivel_2.gd" id="1_0dxal"]
 [ext_resource type="Texture2D" uid="uid://cvg40vn00vx16" path="res://Tilesets/Tileset.png" id="1_lr12k"]
 [ext_resource type="Texture2D" uid="uid://dm20j7y81ac1c" path="res://Tilesets/tileset2.png" id="2_eiaww"]
 [ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="3_wdg5p"]
@@ -9,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bicaebj3mu4vm" path="res://Assets/objetos/seringa.tscn" id="7_8b223"]
 [ext_resource type="Script" path="res://Níveis/Nível2/portanivel2-3.gd" id="8_apuwn"]
 [ext_resource type="Texture2D" uid="uid://ctvqje3xljlob" path="res://Assets/objetos/pixil-frame-0.png" id="8_qh0np"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey2wf"]
+size = Vector2(62.1276, 224)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlgak"]
 texture = ExtResource("1_lr12k")
@@ -873,8 +877,16 @@ size = Vector2(73, 145)
 
 [node name="Nível 2" type="Node2D"]
 
+[node name="notanivel2" type="Area2D" parent="."]
+position = Vector2(277, 253)
+script = ExtResource("1_0dxal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notanivel2"]
+position = Vector2(-1, -7)
+shape = SubResource("RectangleShape2D_ey2wf")
+
 [node name="Player" parent="." instance=ExtResource("3_wdg5p")]
-position = Vector2(176, 241)
+position = Vector2(147, 237)
 
 [node name="Mundo" type="TileMapLayer" parent="."]
 z_index = 1
@@ -910,7 +922,7 @@ position = Vector2(210, 23)
 texture = ExtResource("5_wbhe1")
 
 [node name="Inimigo1" parent="." instance=ExtResource("6_u5bcf")]
-position = Vector2(570, 243)
+position = Vector2(1085, 118)
 
 [node name="patrulha1" type="Node2D" parent="Inimigo1"]
 
@@ -921,7 +933,7 @@ position = Vector2(66, 13)
 position = Vector2(-67, 9)
 
 [node name="Seringa" parent="." instance=ExtResource("7_8b223")]
-position = Vector2(268, 259)
+position = Vector2(911, 253)
 
 [node name="Seringa2" parent="." instance=ExtResource("7_8b223")]
 position = Vector2(840, 261)
@@ -939,5 +951,6 @@ position = Vector2(16.25, -13)
 scale = Vector2(1.535, 1.48)
 texture = ExtResource("8_qh0np")
 
+[connection signal="body_entered" from="notanivel2" to="notanivel2" method="_on_body_entered"]
 [connection signal="body_entered" from="porta" to="porta" method="_on_body_entered"]
 [connection signal="body_exited" from="porta" to="porta" method="_on_body_exited"]

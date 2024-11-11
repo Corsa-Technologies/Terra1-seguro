@@ -266,4 +266,4 @@ func _on_hitboxlamina_body_entered(body: CharacterBody2D) -> void:
 	if body is CharacterBody2D:
 		var hurtbox = body.get_node("hurtbox")
 		if hurtbox:
-			hurtbox.get_parent().take_damage(200)
+			hurtbox.get_parent().take_damage(100)
