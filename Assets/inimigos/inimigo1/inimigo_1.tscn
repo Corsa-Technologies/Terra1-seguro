@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2gp1dbwx1wdj"]
+[gd_scene load_steps=20 format=3 uid="uid://d2gp1dbwx1wdj"]
 
 [ext_resource type="Script" path="res://Assets/inimigos/inimigo1/inimigo_1.gd" id="1_03eev"]
 [ext_resource type="Texture2D" uid="uid://bcow1vruxwvpg" path="res://Assets/inimigos/inimigo1/Walk.png" id="5_7mcr2"]
@@ -107,7 +107,10 @@ animations = [{
 size = Vector2(62.1429, 50.7143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ghj"]
-size = Vector2(231, 35.5)
+size = Vector2(259.5, 80.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu5qb"]
+size = Vector2(84, 74)
 
 [node name="Inimigo1" type="CharacterBody2D"]
 collision_layer = 2
@@ -131,9 +134,12 @@ scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_yla2x")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="hitbox" type="Area2D" parent="."]
 position = Vector2(-0.5, 5.5)
 scale = Vector2(1.4, 1.4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uxhbb")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -141,9 +147,14 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(-5, -7)
+position = Vector2(-1, -34)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_i4ghj")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_iu5qb")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

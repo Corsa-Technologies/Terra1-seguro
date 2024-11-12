@@ -46,6 +46,7 @@ animations = [{
 size = Vector2(24, 16)
 
 [node name="Projetilaya" type="CharacterBody2D"]
+light_mask = 0
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_8434y")
@@ -66,5 +67,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_a543s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

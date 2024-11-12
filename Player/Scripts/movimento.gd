@@ -247,8 +247,9 @@ func shoot_projectile():
 		projectile.global_position = global_position + Vector2(10, 0)  # Dispara para a direita
 		projectile.direction = Vector2.RIGHT  # Define a direção para a direita
 	
-	# Adiciona o projétil à cena
-	get_parent().add_child(projectile)
+	# Adiciona o projétil à cena atual
+	
+	get_tree().get_current_scene().add_child(projectile)
 
 # Função de morte
 func die():
