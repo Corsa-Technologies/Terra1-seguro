@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(0.0627451, 0.0627451, 0.0627451, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
-config/icon="res://icon.svg"
+config/icon="res://arteunrelated/logo.png"
 
 [autoload]
 
@@ -27,13 +27,8 @@ GlobalSignals="*res://ScriptsGerais/GlobalSignals.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"Lucia": "res://recursosdialogo/Lucia.dch"
-}
-directories/dtl_directory={
-"dialogonivel1": "res://Níveis/Nível1/dialogonivel1.dtl",
-"dialogonivel2": "res://Níveis/Nível2/dialogonivel2.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.04
 text/initial_text_reveal_skippable=true
