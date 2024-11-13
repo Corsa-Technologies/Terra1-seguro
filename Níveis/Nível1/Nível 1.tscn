@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://caaep5o1ebj5r" path="res://Assets/objetos/Trees/1.png" id="9_rfnlw"]
 [ext_resource type="Texture2D" uid="uid://c3p55bdivoxj6" path="res://Assets/objetos/Trees/6.png" id="10_aqtmk"]
 [ext_resource type="PackedScene" uid="uid://d2gp1dbwx1wdj" path="res://Assets/inimigos/inimigo1/inimigo_1.tscn" id="11_8x3ve"]
-[ext_resource type="Script" path="res://Níveis/Nível1/dialogonivel_1.gd" id="12_1sxg4"]
+[ext_resource type="Script" path="res://Níveis/Level1/dialogonivel_1.gd" id="12_1sxg4"]
 [ext_resource type="PackedScene" uid="uid://bijpcursufrlj" path="res://Níveis/Nível1/notaativacao.tscn" id="13_jqi78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5wy2"]
