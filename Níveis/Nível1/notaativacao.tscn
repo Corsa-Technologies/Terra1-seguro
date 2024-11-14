@@ -27,6 +27,7 @@ position = Vector2(-15, -54)
 texture_normal = ExtResource("2_y7wfc")
 
 [node name="Nota1_canvas" parent="." instance=ExtResource("4_gyusk")]
+visible = false
 follow_viewport_enabled = false
 
 [node name="fechar" type="TouchScreenButton" parent="Nota1_canvas"]
