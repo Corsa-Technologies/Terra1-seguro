@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bh30c3122r5e"]
+[gd_scene load_steps=14 format=4 uid="uid://bh30c3122r5e"]
 
 [ext_resource type="Texture2D" uid="uid://cjfessj7oh8fj" path="res://Tilesets/tiles oficiais/k1_alienworld_tileset/alienworld_tileset.png" id="1_ifk03"]
 [ext_resource type="PackedScene" uid="uid://c2b5a8wa3xoja" path="res://Player/playercena.tscn" id="1_t6hlo"]
@@ -1005,6 +1005,9 @@ sources/0 = SubResource("TileSetAtlasSource_jlsn1")
 sources/1 = SubResource("TileSetAtlasSource_jg12b")
 sources/2 = SubResource("TileSetAtlasSource_khrau")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sg65"]
+size = Vector2(29, 367)
+
 [node name="Level2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_t6hlo")]
@@ -1065,3 +1068,12 @@ position = Vector2(-58, 19)
 
 [node name="patrulha 2" type="Marker2D" parent="Inimigo3/patrulha1"]
 position = Vector2(63, 19)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(520, 270)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(35, -8)
+shape = SubResource("RectangleShape2D_3sg65")

@@ -33,7 +33,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Dialogo1": "res://Níveis/Level1/Dialogo1.dtl",
-"Dialogo2": "res://Níveis/Level1/Dialogo2.dtl"
+"Dialogo2": "res://Níveis/Level1/Dialogo2.dtl",
+"dialogo3": "res://Níveis/Level 2/dialogo3.dtl"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.04
