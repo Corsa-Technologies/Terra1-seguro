@@ -174,7 +174,7 @@ func dash():
 	if not can_dash:
 		return
 	
-	is_dashing = true  # Bloqueia o dash até que o tempo de recarga termine
+	is_dashing = true	  # Bloqueia o dash até que o tempo de recarga termine
 	animated_sprite.play("dash")
 	
 	var target_position = position + Vector2(300 * facing_direction, 0)  # Define a posição final a 300 pixels na direção atual
