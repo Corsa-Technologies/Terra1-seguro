@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dfdyj3k0jxls1"]
+[gd_scene load_steps=22 format=4 uid="uid://dfdyj3k0jxls1"]
 
 [ext_resource type="Texture2D" uid="uid://cjfessj7oh8fj" path="res://Tilesets/tiles oficiais/k1_alienworld_tileset/alienworld_tileset.png" id="1_qyqsf"]
 [ext_resource type="Texture2D" uid="uid://dh40q2npdfdeg" path="res://Assets/fundo/fundo.png" id="1_usx4n"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bicaebj3mu4vm" path="res://Assets/objetos/seringa.tscn" id="7_4k1j2"]
 [ext_resource type="Script" path="res://Níveis/Level1/dialogo_2.gd" id="7_kb0ag"]
 [ext_resource type="Script" path="res://Níveis/Level1/limbonivel1.gd" id="10_o0k1t"]
+[ext_resource type="Script" path="res://Níveis/Level1/teleportnivel_2.gd" id="11_3ls4u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdhm5"]
 texture = ExtResource("1_qyqsf")
@@ -659,6 +660,9 @@ size = Vector2(84, 265)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eukhw"]
 size = Vector2(35, 368)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmnux"]
+size = Vector2(53.8062, 248)
+
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_g1ykn")]
@@ -787,6 +791,15 @@ position = Vector2(1919, 208)
 [node name="respawn" type="Marker2D" parent="."]
 position = Vector2(-384.331, 296.356)
 
+[node name="teleportnivel2" type="Area2D" parent="."]
+position = Vector2(4480.19, 239.47)
+script = ExtResource("11_3ls4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportnivel2"]
+position = Vector2(-1.19385, -49.4695)
+shape = SubResource("RectangleShape2D_qmnux")
+
 [connection signal="body_entered" from="dialogo1" to="dialogo1" method="_on_body_entered"]
 [connection signal="body_entered" from="dialogo2" to="dialogo2" method="_on_body_entered"]
 [connection signal="body_entered" from="limbo" to="limbo" method="_on_body_entered"]
+[connection signal="body_entered" from="teleportnivel2" to="teleportnivel2" method="_on_body_entered"]
