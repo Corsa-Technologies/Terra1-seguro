@@ -757,9 +757,6 @@ script = ExtResource("10_o0k1t")
 position = Vector2(2071, -112)
 shape = SubResource("RectangleShape2D_y4lxp")
 
-[node name="Inimigo1" parent="limbo/CollisionShape2D" instance=ExtResource("5_8u50f")]
-position = Vector2(-2463, -337)
-
 [connection signal="body_entered" from="dialogo1" to="dialogo1" method="_on_body_entered"]
 [connection signal="body_entered" from="dialogo2" to="dialogo2" method="_on_body_entered"]
 [connection signal="body_entered" from="limbo" to="limbo" method="_on_body_entered"]
