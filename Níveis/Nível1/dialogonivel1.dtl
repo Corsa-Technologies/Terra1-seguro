@@ -1,7 +1,0 @@
-[signal]
-join Lucia leftmost [animation="Zoom Center In"]
-Lucia (falando): aqui é onde inicia o sistema de diálogos, com o portrait scriptado ao lado
-Lucia (falando): aqui haverá a alteração de portrait
-Lucia (falando): agora
-update Lucia (ouvindo) [fade="Fade Cross"]
-.....

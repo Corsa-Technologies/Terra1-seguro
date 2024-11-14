@@ -173,7 +173,7 @@ func dash():
 	is_dashing = true
 	animated_sprite.play('dash')
 	var target_position = position + Vector2(300 * facing_direction, 0)  # Define a posição final a 300 pixels na direção atual
-	var dash_timer = 0.2  # Define o tempo de duração do dash em segundos
+	var dash_timer = 0.15  # Define o tempo de duração do dash em segundos
 
 	while is_dashing and dash_timer > 0:
 		velocity.x = speed_dash * facing_direction  # Define a velocidade de dash na direção que o jogador está olhando

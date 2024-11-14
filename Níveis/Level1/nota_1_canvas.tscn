@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://csrm237quqi0i"]
 
-[ext_resource type="Texture2D" uid="uid://c7lvsmg5ovp4k" path="res://Níveis/Nível1/Nota1.jpeg" id="1_ca3y8"]
+[ext_resource type="Texture2D" uid="uid://c7lvsmg5ovp4k" path="res://Níveis/Level1/Nota1.jpeg" id="1_ca3y8"]
 
 [node name="Nota1_canvas" type="CanvasLayer"]
 follow_viewport_enabled = true

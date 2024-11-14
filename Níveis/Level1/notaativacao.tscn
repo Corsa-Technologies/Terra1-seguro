@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bijpcursufrlj"]
 
-[ext_resource type="Script" path="res://Níveis/Nível1/notaativacao.gd" id="1_2duqd"]
+[ext_resource type="Script" path="res://Níveis/Level1/notaativacao.gd" id="1_2duqd"]
 [ext_resource type="Texture2D" uid="uid://b5xwnxdb7064n" path="res://addons/dialogic/Modules/Glossary/icon.svg" id="1_leo2d"]
 [ext_resource type="Texture2D" uid="uid://d3m5lcfk68rid" path="res://addons/dialogic/Modules/Text/icon.svg" id="2_y7wfc"]
-[ext_resource type="PackedScene" uid="uid://csrm237quqi0i" path="res://Níveis/Nível1/nota_1_canvas.tscn" id="4_gyusk"]
+[ext_resource type="PackedScene" uid="uid://csrm237quqi0i" path="res://Níveis/Level1/nota_1_canvas.tscn" id="4_gyusk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i8jb"]
 size = Vector2(261, 49)
@@ -27,7 +27,6 @@ position = Vector2(-15, -54)
 texture_normal = ExtResource("2_y7wfc")
 
 [node name="Nota1_canvas" parent="." instance=ExtResource("4_gyusk")]
-visible = false
 follow_viewport_enabled = false
 
 [node name="fechar" type="TouchScreenButton" parent="Nota1_canvas"]
