@@ -170,14 +170,20 @@ func _physics_process(delta):
 
 
 func dash():
-	is_dashing = true
-	animated_sprite.play('dash')
+	# Verifica se o jogador pode usar o dash
+	if not can_dash:
+		return
+	
+	is_dashing = true  # Bloqueia o dash até que o tempo de recarga termine
+	animated_sprite.play("dash")
+	
 	var target_position = position + Vector2(300 * facing_direction, 0)  # Define a posição final a 300 pixels na direção atual
 	var dash_timer = 0.15  # Define o tempo de duração do dash em segundos
 
 	while is_dashing and dash_timer > 0:
 		velocity.x = speed_dash * facing_direction  # Define a velocidade de dash na direção que o jogador está olhando
 		position = position.move_toward(target_position, speed_dash * get_process_delta_time())  # Move em direção à posição alvo
+		
 		# Atualiza o tempo do dash
 		await get_tree().create_timer(0.01).timeout
 		dash_timer -= 0.01
@@ -190,11 +196,9 @@ func dash():
 	is_dashing = false
 	velocity.x = 0  # Para o movimento horizontal
 
-
 	# Usa await para esperar o tempo do dash
 	await get_tree().create_timer(dash_time).timeout
-	SPEED = originalspeed  # Retorna à velocidade original após o dash
-	is_dashing = false
+	SPEED = originalspeed  # Retorna à velo
 
 
 
@@ -204,16 +208,18 @@ func _input(event: InputEvent):
 		position.y += 1
 
 	# Verifica se o botão "tiro" foi pressionado e o personagem não está atirando ou atacando
-	if event.is_action_pressed("tiro") and not is_shooting and not is_attacking and not is_healing:
+	if event.is_action_pressed("tiro") and not is_shooting and not is_attacking and not is_healing and not is_dashing:
 		is_shooting = true
+		can_dash = false
 		velocity.x = 0 # Para o personagem de se mover enquanto atira
 		animated_sprite.play("tiro")
 		shoot_projectile() # Dispara o projétil
 		animated_sprite.connect("animation_finished", Callable(self, "_on_shoot_animation_finished"))
 
 	# Verifica se o botão "ataque" foi pressionado e o personagem não está atacando ou atirando
-	if event.is_action_pressed("ataque") and not is_attacking and not is_shooting and not is_healing:
+	if event.is_action_pressed("ataque") and not is_attacking and not is_shooting and not is_healing and not is_dashing:
 		is_attacking = true
+		can_dash = false
 		velocity.x = 0 # Para o personagem de se mover enquanto ataca
 		animated_sprite.play("ataque")
 		hitboxlamina.set_monitoring(true)  # Ativa a hitbox ao iniciar o ataque
@@ -222,11 +228,13 @@ func _input(event: InputEvent):
 # Função chamada quando a animação de tiro termina
 func _on_shoot_animation_finished():
 	is_shooting = false
+	can_dash=true
 	animated_sprite.disconnect("animation_finished", Callable(self, "_on_shoot_animation_finished"))
 
 # Função chamada quando a animação de ataque termina
 func _on_attack_animation_finished():
 	is_attacking = false
+	can_dash=true
 	hitboxlamina.set_monitoring(false)  # Desativa a hitbox ao terminar o ataque
 	animated_sprite.disconnect("animation_finished", Callable(self, "_on_attack_animation_finished"))
 
