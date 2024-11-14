@@ -665,7 +665,7 @@ position = Vector2(-232, 120)
 motion_mirroring = Vector2(1555, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(40, -312)
+position = Vector2(40, -425)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_usx4n")
 centered = false
@@ -754,8 +754,11 @@ position = Vector2(-67, 756)
 script = ExtResource("10_o0k1t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limbo"]
-position = Vector2(2012.5, -180)
+position = Vector2(2071, -112)
 shape = SubResource("RectangleShape2D_y4lxp")
+
+[node name="Inimigo1" parent="limbo/CollisionShape2D" instance=ExtResource("5_8u50f")]
+position = Vector2(-2463, -337)
 
 [connection signal="body_entered" from="dialogo1" to="dialogo1" method="_on_body_entered"]
 [connection signal="body_entered" from="dialogo2" to="dialogo2" method="_on_body_entered"]
