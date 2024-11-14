@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Decay"
+config/name="Terra 1"
 run/main_scene="res://GUI/Menus/MenuPrincipal/Menuprincipal.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(0.0627451, 0.0627451, 0.0627451, 1)
