@@ -3,14 +3,21 @@ extends CharacterBody2D
 @export var speed: float = 150.0
 @export var gravity: float = 500.0
 @export var patrol_tolerance: float = 10.0
-@export var health: int = 100  # Adiciona uma variável de saúde ao inimigo
+@export var max_health: int = 300  # Adiciona uma variável de saúde ao inimigo
 @export var damage: int = 20
+
+
+@onready var health_bar: ProgressBar = $BarradeVida
 
 var patrol_points: Array = []
 var current_patrol_index: int = 0
 var player_target: Node = null  # Armazena o jogador detectado
+var current_health: int = max_health
 
 func _ready():
+	health_bar.max_value = max_health
+	health_bar.value = current_health
+	health_bar.visible = false
 	# Verifica se o nó 'patrulha1' existe como filho do inimigo
 	if has_node("patrulha1"):
 		var patrol_parent = $patrulha1
@@ -74,9 +81,11 @@ func _on_hitbox_body_entered(body):
 
 # Função para receber dano
 func take_damage(amount: int):
-	health -= amount  # Subtrai o dano da saúde do inimigo
-	if health <= 0:
-		die()  # Chama a função de morte se a saúde for menor ou igual a 0
+		health_bar.visible = true
+		current_health -= amount  # Subtrai o dano da saúde atual do inimigo
+		health_bar.value = current_health  # Atualiza a barra de vida
+		if current_health <= 0:
+			die()  # Chama a função de morte se a saúde for menor ou igual a 0
 
 # Função de morte
 func die():
