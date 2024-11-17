@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://GUI/Menus/MenuPrincipal/botãoplay.gd" id="2_kvl8a"]
 [ext_resource type="Texture2D" uid="uid://cadpec6iw5l83" path="res://GUI/Menus/MenuPrincipal/transparentLight14.png" id="2_v6tkc"]
-[ext_resource type="Texture2D" uid="uid://cs5jmebne16rt" path="res://GUI/Menus/MenuPrincipal/IMGMenuPrincipal.jpeg" id="3_jjisl"]
+[ext_resource type="Texture2D" uid="uid://dnjv1kdy6ylup" path="res://GUI/Menus/MenuPrincipal/IMG-20241114-WA0053.jpg" id="3_321w1"]
 
 [node name="Menuprincipal" type="Control"]
 layout_mode = 3
@@ -17,13 +17,13 @@ script = ExtResource("2_kvl8a")
 metadata/_edit_use_anchors_ = true
 
 [node name="BotãoPlay" type="TouchScreenButton" parent="."]
-position = Vector2(35, 125)
-scale = Vector2(7.16667, 1.875)
+position = Vector2(6, -5)
+scale = Vector2(33.1667, 15.25)
 texture_normal = ExtResource("2_v6tkc")
 
 [node name="ImgMenuPrincipal" type="Sprite2D" parent="."]
 position = Vector2(799, 360)
 scale = Vector2(1, 0.802222)
-texture = ExtResource("3_jjisl")
+texture = ExtResource("3_321w1")
 
 [connection signal="pressed" from="BotãoPlay" to="." method="_on_botão_play_pressed"]

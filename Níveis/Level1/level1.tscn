@@ -777,10 +777,6 @@ collision_mask = 2
 position = Vector2(1722, -107)
 shape = SubResource("RectangleShape2D_eukhw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="barreiras inimigos burros/CollisionShape2D"]
-position = Vector2(-1876, 37.5)
-shape = SubResource("RectangleShape2D_eukhw")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="barreiras inimigos burros"]
 position = Vector2(-71, -173)
 shape = SubResource("RectangleShape2D_eukhw")
