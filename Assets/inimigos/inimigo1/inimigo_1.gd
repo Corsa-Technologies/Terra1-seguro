@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var gravity: float = 500.0
 @export var patrol_tolerance: float = 10.0
 @export var max_health: int = 300  # Adiciona uma variável de saúde ao inimigo
-@export var damage: int = 20
+@export var damage: int = 15
 
 
 @onready var health_bar: ProgressBar = $BarradeVida
