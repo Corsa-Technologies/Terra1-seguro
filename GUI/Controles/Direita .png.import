@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xafc84pfoqm"
-path="res://.godot/imported/controlepulo.png-4d9902011fece0bbddbc6a05a6897349.ctex"
+uid="uid://don1hgpd6kvo5"
+path="res://.godot/imported/Direita .png-47d6f5caa12f2bd54b6eb974bac63e83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/controlepulo.png"
-dest_files=["res://.godot/imported/controlepulo.png-4d9902011fece0bbddbc6a05a6897349.ctex"]
+source_file="res://GUI/Controles/Direita .png"
+dest_files=["res://.godot/imported/Direita .png-47d6f5caa12f2bd54b6eb974bac63e83.ctex"]
 
 [params]
 

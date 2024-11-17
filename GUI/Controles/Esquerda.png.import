@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1nu6jmo36gj0"
-path="res://.godot/imported/pressesquerda.png-8d08ce01207e9f5b19d22c04414cb380.ctex"
+uid="uid://b1dasygc1ebce"
+path="res://.godot/imported/Esquerda.png-aa1f8d0482d03d0137e867ac4603e3dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/pressesquerda.png"
-dest_files=["res://.godot/imported/pressesquerda.png-8d08ce01207e9f5b19d22c04414cb380.ctex"]
+source_file="res://GUI/Controles/Esquerda.png"
+dest_files=["res://.godot/imported/Esquerda.png-aa1f8d0482d03d0137e867ac4603e3dc.ctex"]
 
 [params]
 

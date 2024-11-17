@@ -1,21 +1,21 @@
 [gd_scene load_steps=18 format=3 uid="uid://6r0hwy3ijx5f"]
 
 [ext_resource type="Script" path="res://GUI/Controles/controletoque.gd" id="1_6ks27"]
-[ext_resource type="Texture2D" uid="uid://cuea70ofd5epd" path="res://GUI/Controles/transparentLight08.png" id="2_tnwsv"]
-[ext_resource type="Texture2D" uid="uid://be1w83reg4i6q" path="res://GUI/Controles/transparentDark08.png" id="3_m0ms0"]
-[ext_resource type="Texture2D" uid="uid://dt5426d345kep" path="res://GUI/Controles/transparentLight03.png" id="4_8tt5h"]
-[ext_resource type="Texture2D" uid="uid://cqvjevq3pnr2l" path="res://GUI/Controles/transparentLight04.png" id="5_05swi"]
-[ext_resource type="Texture2D" uid="uid://dwepdrbftpkca" path="res://GUI/Controles/transparentDark03.png" id="5_i6lfy"]
-[ext_resource type="Texture2D" uid="uid://b8xafc84pfoqm" path="res://GUI/Controles/controlepulo.png" id="5_qwhvk"]
-[ext_resource type="Texture2D" uid="uid://co4ji2hklrgnk" path="res://GUI/Controles/presspulo.png" id="6_0dx5n"]
-[ext_resource type="Texture2D" uid="uid://chfpd30ejlcsy" path="res://GUI/Controles/transparentDark04.png" id="7_bj82w"]
-[ext_resource type="Texture2D" uid="uid://dcl5urr1u45hj" path="res://GUI/Controles/tiro.png" id="8_1tkvm"]
-[ext_resource type="Texture2D" uid="uid://bv5mmm0gm16r" path="res://GUI/Controles/presstiro.png" id="9_jfr4v"]
-[ext_resource type="Texture2D" uid="uid://dcgi67gumry88" path="res://GUI/Controles/ataque.png" id="10_np2q5"]
-[ext_resource type="Texture2D" uid="uid://45rd7xy0kdur" path="res://GUI/Controles/pressataque.png" id="11_adolr"]
-[ext_resource type="Texture2D" uid="uid://dq3ulo5ver1jo" path="res://GUI/Controles/transparentLight19.png" id="14_gwe5s"]
+[ext_resource type="Texture2D" uid="uid://ccmt4kuwp1fmb" path="res://GUI/Controles/Baixo.png" id="2_2qb73"]
+[ext_resource type="Texture2D" uid="uid://c84kgjcecl81t" path="res://GUI/Controles/Baixopressed.png" id="3_8qpyd"]
+[ext_resource type="Texture2D" uid="uid://b1dasygc1ebce" path="res://GUI/Controles/Esquerda.png" id="4_8nklo"]
+[ext_resource type="Texture2D" uid="uid://qbhsrgcs50bb" path="res://GUI/Controles/Esquerdapressed.png" id="5_77gst"]
+[ext_resource type="Texture2D" uid="uid://don1hgpd6kvo5" path="res://GUI/Controles/Direita .png" id="6_2kdu7"]
+[ext_resource type="Texture2D" uid="uid://bfbehuru1my1s" path="res://GUI/Controles/direitapressed.png" id="7_nj468"]
+[ext_resource type="Texture2D" uid="uid://o85hjl84ei8v" path="res://GUI/Controles/Pulo.png" id="8_mon5h"]
+[ext_resource type="Texture2D" uid="uid://bw33828n753lo" path="res://GUI/Controles/Pulopressed.png" id="9_o2c31"]
+[ext_resource type="Texture2D" uid="uid://dcl5urr1u45hj" path="res://GUI/Controles/Tiro.png" id="10_4wxoo"]
+[ext_resource type="Texture2D" uid="uid://btsr2rx8as5c0" path="res://GUI/Controles/Tiropressed.png" id="11_4mkev"]
+[ext_resource type="Texture2D" uid="uid://dcgi67gumry88" path="res://GUI/Controles/Ataque.png" id="12_3eg7t"]
+[ext_resource type="Texture2D" uid="uid://78tdherunilh" path="res://GUI/Controles/Ataquepressed .png" id="13_yty4d"]
+[ext_resource type="Texture2D" uid="uid://c6unkv24ff2v2" path="res://GUI/Controles/Dash .png" id="14_adyiw"]
 [ext_resource type="Texture2D" uid="uid://b3upyetnj2nbw" path="res://GUI/Controles/barra de vida.png" id="14_krhtq"]
-[ext_resource type="Texture2D" uid="uid://cei7a6cmd3tfx" path="res://GUI/Controles/transparentDark19.png" id="15_kpvma"]
+[ext_resource type="Texture2D" uid="uid://ddvlbf67s5mj0" path="res://GUI/Controles/Dashpressed.png" id="15_5dhqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm73x"]
 
@@ -40,46 +40,46 @@ offset_bottom = -2.0
 grow_vertical = 0
 
 [node name="Descer" type="TouchScreenButton" parent="Control"]
-position = Vector2(222, 495)
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("2_tnwsv")
-texture_pressed = ExtResource("3_m0ms0")
+position = Vector2(192, 495)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_2qb73")
+texture_pressed = ExtResource("3_8qpyd")
 action = "ui_down"
 
 [node name="Esquerda" type="TouchScreenButton" parent="Control"]
-position = Vector2(119, 422)
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("4_8tt5h")
-texture_pressed = ExtResource("5_i6lfy")
+position = Vector2(100, 422)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("4_8nklo")
+texture_pressed = ExtResource("5_77gst")
 action = "ui_left"
 
 [node name="Direita" type="TouchScreenButton" parent="Control"]
-position = Vector2(301, 422)
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("5_05swi")
-texture_pressed = ExtResource("7_bj82w")
+position = Vector2(282, 422)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("6_2kdu7")
+texture_pressed = ExtResource("7_nj468")
 action = "ui_right"
 
 [node name="Pulo" type="TouchScreenButton" parent="Control"]
 position = Vector2(1411, 494)
-scale = Vector2(1.574, 1.6)
-texture_normal = ExtResource("5_qwhvk")
-texture_pressed = ExtResource("6_0dx5n")
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("8_mon5h")
+texture_pressed = ExtResource("9_o2c31")
 action = "ui_up"
 
 [node name="Tiro" type="TouchScreenButton" parent="Control"]
 position = Vector2(1424, 377)
-scale = Vector2(1.3, 1.3)
-texture_normal = ExtResource("8_1tkvm")
-texture_pressed = ExtResource("9_jfr4v")
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("10_4wxoo")
+texture_pressed = ExtResource("11_4mkev")
 passby_press = true
 action = "tiro"
 
 [node name="Ataque" type="TouchScreenButton" parent="Control"]
 position = Vector2(1268, 503)
-scale = Vector2(1.4, 1.4)
-texture_normal = ExtResource("10_np2q5")
-texture_pressed = ExtResource("11_adolr")
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("12_3eg7t")
+texture_pressed = ExtResource("13_yty4d")
 action = "ataque"
 
 [node name="Cura" type="TouchScreenButton" parent="Control"]
@@ -89,10 +89,10 @@ shape = SubResource("RectangleShape2D_cm73x")
 action = "cura"
 
 [node name="Dash" type="TouchScreenButton" parent="Control"]
-position = Vector2(1286, 418)
-scale = Vector2(1.5, 1.35417)
-texture_normal = ExtResource("14_gwe5s")
-texture_pressed = ExtResource("15_kpvma")
+position = Vector2(1294, 403)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("14_adyiw")
+texture_pressed = ExtResource("15_5dhqr")
 action = "dash"
 
 [node name="HealthText" type="Label" parent="Control"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwm50ffuwcjo1"
-path="res://.godot/imported/pressdireita.png-5cabfcdb610d3a39de968951d373672e.ctex"
+uid="uid://bw33828n753lo"
+path="res://.godot/imported/Pulopressed.png-d7e5a1409caa4b148348715625bc1c31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/pressdireita.png"
-dest_files=["res://.godot/imported/pressdireita.png-5cabfcdb610d3a39de968951d373672e.ctex"]
+source_file="res://GUI/Controles/Pulopressed.png"
+dest_files=["res://.godot/imported/Pulopressed.png-d7e5a1409caa4b148348715625bc1c31.ctex"]
 
 [params]
 

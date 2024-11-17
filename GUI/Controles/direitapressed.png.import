@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwepdrbftpkca"
-path="res://.godot/imported/transparentDark03.png-525e9a74132ad02148930b751a304fb7.ctex"
+uid="uid://bfbehuru1my1s"
+path="res://.godot/imported/direitapressed.png-938435ed6cc33e633fa0704f82ffbd62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/transparentDark03.png"
-dest_files=["res://.godot/imported/transparentDark03.png-525e9a74132ad02148930b751a304fb7.ctex"]
+source_file="res://GUI/Controles/direitapressed.png"
+dest_files=["res://.godot/imported/direitapressed.png-938435ed6cc33e633fa0704f82ffbd62.ctex"]
 
 [params]
 

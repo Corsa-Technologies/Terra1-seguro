@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv5mmm0gm16r"
-path="res://.godot/imported/presstiro.png-a17e5ee9cc0a06522274f7c4d2924574.ctex"
+uid="uid://btsr2rx8as5c0"
+path="res://.godot/imported/Tiropressed.png-ef0da3751b3c3457dfa122319352644a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/presstiro.png"
-dest_files=["res://.godot/imported/presstiro.png-a17e5ee9cc0a06522274f7c4d2924574.ctex"]
+source_file="res://GUI/Controles/Tiropressed.png"
+dest_files=["res://.godot/imported/Tiropressed.png-ef0da3751b3c3457dfa122319352644a.ctex"]
 
 [params]
 

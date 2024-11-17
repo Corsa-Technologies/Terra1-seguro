@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1qbacnap827p"
-path="res://.godot/imported/pressdescer.png-0feca0e2248d934d289036696a1132c0.ctex"
+uid="uid://ddvlbf67s5mj0"
+path="res://.godot/imported/Dashpressed.png-54843eaf23b99bb7bec8b2d2cb1cf05d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/pressdescer.png"
-dest_files=["res://.godot/imported/pressdescer.png-0feca0e2248d934d289036696a1132c0.ctex"]
+source_file="res://GUI/Controles/Dashpressed.png"
+dest_files=["res://.godot/imported/Dashpressed.png-54843eaf23b99bb7bec8b2d2cb1cf05d.ctex"]
 
 [params]
 
