@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcl5urr1u45hj"
-path="res://.godot/imported/tiro.png-0b8dae0794bd69e9c2307e5dc3bb8705.ctex"
+uid="uid://dfjm6b8yjefcf"
+path="res://.godot/imported/CaveTileset.png-c5cf7a260bd6a155d5b2de1e272bc714.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/tiro.png"
-dest_files=["res://.godot/imported/tiro.png-0b8dae0794bd69e9c2307e5dc3bb8705.ctex"]
+source_file="res://Assets/Fase 3/CaveTileset.png"
+dest_files=["res://.godot/imported/CaveTileset.png-c5cf7a260bd6a155d5b2de1e272bc714.ctex"]
 
 [params]
 

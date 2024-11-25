@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcl5urr1u45hj"
-path="res://.godot/imported/tiro.png-0b8dae0794bd69e9c2307e5dc3bb8705.ctex"
+uid="uid://bd77cilwu4x6d"
+path="res://.godot/imported/casanoggers.png-3339d2acc5b9f4d8ba0a71f4fc8a24ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/tiro.png"
-dest_files=["res://.godot/imported/tiro.png-0b8dae0794bd69e9c2307e5dc3bb8705.ctex"]
+source_file="res://Níveis/Level 3/casanoggers.png"
+dest_files=["res://.godot/imported/casanoggers.png-3339d2acc5b9f4d8ba0a71f4fc8a24ef.ctex"]
 
 [params]
 
