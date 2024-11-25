@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcl5urr1u45hj"
-path="res://.godot/imported/tiro.png-0b8dae0794bd69e9c2307e5dc3bb8705.ctex"
+path="res://.godot/imported/Tiro.png-a1bb5a82f35338e27e05877951bc6c37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Controles/tiro.png"
-dest_files=["res://.godot/imported/tiro.png-0b8dae0794bd69e9c2307e5dc3bb8705.ctex"]
+source_file="res://GUI/Controles/Tiro.png"
+dest_files=["res://.godot/imported/Tiro.png-a1bb5a82f35338e27e05877951bc6c37.ctex"]
 
 [params]
 

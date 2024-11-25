@@ -10,8 +10,8 @@ func _ready():
 	# Define a rotação do projétil para a direção de movimento
 	rotation = direction.angle()  # Ajusta a rotação para a direção
 
-	# Remove o projétil após 3 segundos, caso não colida com nada
-	await get_tree().create_timer(3).timeout
+	# Remove o projétil após 1,5s, caso não colida com nada
+	await get_tree().create_timer(1.5).timeout
 	queue_free()  # Remove o projétil da cena
 
 func _physics_process(delta):
@@ -24,6 +24,5 @@ func _on_area_2d_body_entered(body: CharacterBody2D):  # Verifica se o objeto qu
 	if body is CharacterBody2D:
 		var hurtbox = body.get_node("hurtbox")
 		if hurtbox:
-			print('Achei a hurtbox dentro do inimigo')
 			hurtbox.get_parent().take_damage(50)
 			queue_free()

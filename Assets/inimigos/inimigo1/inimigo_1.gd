@@ -3,27 +3,25 @@ extends CharacterBody2D
 @export var speed: float = 150.0
 @export var gravity: float = 500.0
 @export var patrol_tolerance: float = 10.0
-@export var max_health: int = 300  # Adiciona uma variável de saúde ao inimigo
+@export var max_health: int = 300
 @export var damage: int = 15
-
 
 @onready var health_bar: ProgressBar = $BarradeVida
 
 var patrol_points: Array = []
 var current_patrol_index: int = 0
-var player_target: Node = null  # Armazena o jogador detectado
+var player_target: Node = null
 var current_health: int = max_health
 
 func _ready():
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	health_bar.visible = false
-	# Verifica se o nó 'patrulha1' existe como filho do inimigo
 	if has_node("patrulha1"):
 		var patrol_parent = $patrulha1
 		for point in patrol_parent.get_children():
 			if point is Marker2D:
-				patrol_points.append(point.global_position)  # Usa a posição global dos Markers2D
+				patrol_points.append(point.global_position)
 	else:
 		$AnimatedSprite2D.play('idle')
 
@@ -49,7 +47,6 @@ func _physics_process(delta):
 
 			# Atualiza a rotação do sprite para refletir a direção
 			$AnimatedSprite2D.flip_h = direction.x > 0
-
 			move_and_slide()
 
 			# Verifica se o inimigo chegou ao ponto de patrulha
@@ -61,32 +58,24 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("idle")
 
 func _on_detection_area_body_entered(body):
-	# Verifica se o corpo que entrou na DetectionArea é o jogador
 	if body.name == ("Player"):
-		player_target = body  # Define o jogador como alvo
-		print('o player agora é o alvo')
-
+		player_target = body
 
 func _on_detection_area_body_exited(body):
-	# Verifica se o corpo que entrou na DetectionArea é o jogador
 	if body.name == ("Player"):
-		player_target = null  # remove o jogador de alvo
-		print('o player n é mais o alvo')
+		player_target = null
 
 func _on_hitbox_body_entered(body):
-	# Verifica se o corpo que entrou na área é o jogador
 	if body.name == ("Player"):
-		# Chama a função `take_damage` do jogador
+		$AnimatedSprite2D.play("attack")
 		body.take_damage(damage)
 
-# Função para receber dano
 func take_damage(amount: int):
 		health_bar.visible = true
-		current_health -= amount  # Subtrai o dano da saúde atual do inimigo
-		health_bar.value = current_health  # Atualiza a barra de vida
+		current_health -= amount
+		health_bar.value = current_health
 		if current_health <= 0:
-			die()  # Chama a função de morte se a saúde for menor ou igual a 0
+			die()
 
-# Função de morte
 func die():
-	queue_free()  # Remove o inimigo da cena
+	queue_free()
