@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyv5qmvfbuolr"
-path="res://.godot/imported/Walk.png-78418808075e6e61772ef4de0d9ce3df.ctex"
+uid="uid://ci72gei17nuld"
+path="res://.godot/imported/sementeira.png-18542a3c1323edd7b69c9c50e65f1eea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/inimigos/inimigo1/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-78418808075e6e61772ef4de0d9ce3df.ctex"]
+source_file="res://Níveis/sementeira.png"
+dest_files=["res://.godot/imported/sementeira.png-18542a3c1323edd7b69c9c50e65f1eea.ctex"]
 
 [params]
 
